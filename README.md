@@ -67,8 +67,8 @@ Smart-Calculator/
 1. **Clone the repository:**
 
 ```bash
-git clone https://github.com/yourusername/dark-calculator.git
-cd dark-calculator
+git clone https://github.com/abdurrahman101bd/Smart-Calculator.git
+cd Smart-Calculator
 ```
 
 2. **Open `index.html`** in your browser. No server required.
