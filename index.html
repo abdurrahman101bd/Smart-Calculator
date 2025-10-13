@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Smart Calculator</title>
 <link rel="stylesheet" href="style.css">
-<title>Dark Calculator</title>
 </head>
 <body>
 
@@ -18,24 +18,38 @@
         <div class="power"></div>
         <div class="power"></div>
         <div class="power"></div>
+        <button class="theme-toggle" id="themeToggle">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M480-120q-150 0-255-105T120-480q0-150 105-255t255-105q14 0 27.5 1t26.5 3q-41 29-65.5 75.5T444-660q0 90 63 153t153 63q55 0 101-24.5t75-65.5q2 13 3 26.5t1 27.5q0 150-105 255T480-120Zm0-80q88 0 158-48.5T740-375q-20 5-40 8t-40 3q-123 0-209.5-86.5T364-660q0-20 3-40t8-40q-78 32-126.5 102T200-480q0 116 82 198t198 82Zm-10-270Z"/></svg>
+        </button>
     </div>
     </div>
     
   <div class="display">
+    <div class="memory-indicator" id="memoryIndicator">M</div>
     <div id="formula"></div>
     <div id="display">0</div>
   </div>
 
+
+
   <div class="keys" id="keys">
+    <!-- Memory Row -->
+    <button class="btn memory" data-action="mc">MC</button>
+    <button class="btn memory" data-action="mr">MR</button>
+    <button class="btn memory" data-action="m-">M-</button>
+    <button class="btn memory" data-action="m+">M+</button>
+
+    <!-- First Row -->
     <button class="btn ghost" data-action="clear">AC</button>
     <button class="btn ghost" data-action="del">DEL</button>
-    <button class="btn op" data-value="%">%</button>
+    <button class="btn op" data-action="sqrt">√</button>
     <button class="btn op" data-value="/">/</button>
 
+    <!-- Number Rows -->
     <button class="btn" data-value="7">7</button>
     <button class="btn" data-value="8">8</button>
     <button class="btn" data-value="9">9</button>
-    <button class="btn op" data-value="*">*</button>
+    <button class="btn op" data-value="*">x</button>
 
     <button class="btn" data-value="4">4</button>
     <button class="btn" data-value="5">5</button>
@@ -47,7 +61,7 @@
     <button class="btn" data-value="3">3</button>
     <button class="btn op" data-value="-">-</button>
 
-    <button class="btn" data-action="neg">±</button>
+    <button class="btn op" data-value="%">%</button>
     <button class="btn" data-value="0">0</button>
     <button class="btn" data-value=".">.</button>
     <button class="btn eq" data-action="equals">=</button>
