@@ -24,8 +24,6 @@
 
 A beautiful, modern, and feature-rich web-based calculator with dark/light theme support, calculation history, and multiple specialized calculators.
 
-![Smart Calculator Banner](https://via.placeholder.com/1200x400/222831/f6e96b?text=Smart+Calculator)
-
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML)
 [![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
