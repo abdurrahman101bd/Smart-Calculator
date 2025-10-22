@@ -1,6 +1,6 @@
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
 
-# 🎓 Smart Calculator
+# 🧮 Smart Calculator
 
 <p><img src="https://komarev.com/ghpvc/?username=abdurrahman101bd" alt="Profile Views"> <img src="https://custom-icon-badges.herokuapp.com/badge/Repo-blue.svg?logo=repo" alt="Repository Count Badge">
 <img src="https://custom-icon-badges.herokuapp.com/badge/Star-yellow.svg?logo=star" alt="Stars Badge">
@@ -14,157 +14,321 @@
 ![GitHub issues](https://img.shields.io/github/issues-raw/abdurrahman101bd/Smart-Calculator)
 ![GitHub stars](https://img.shields.io/github/stars/abdurrahman101bd/Smart-Calculator?style=social)
 ![GitHub forks](https://img.shields.io/github/forks/abdurrahman101bd/Smart-Calculator?style=social)
+![GitHub repo size](https://img.shields.io/github/repo-size/abdurrahman101bd/Smart-Calculator)
+![GitHub issues](https://img.shields.io/github/issues/abdurrahman101bd/Smart-Calculator)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/abdurrahman101bd/Smart-Calculator)
+
 ![Version](https://img.shields.io/badge/Version-2.0-blue)
 
 ---
 
-A modern, responsive, and feature-rich **Smart Calculator** with **Dark/Light Theme** support built with **HTML, CSS, and JavaScript**.  
-Designed to resemble a classic solar-powered calculator with a sleek interface, smooth animations, memory functions, and auto theme detection.
+A beautiful, modern, and feature-rich web-based calculator with dark/light theme support, calculation history, and multiple specialized calculators.
 
----
+![Smart Calculator Banner](https://via.placeholder.com/1200x400/222831/f6e96b?text=Smart+Calculator)
 
-## 🔹 Features
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML)
+[![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
+[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
-### 🎨 Theme System
-- **Dark & Light Mode**: Toggle between stunning dark and light themes
-- **Auto Theme Detection**: Automatically adapts to your system preference
-- **Theme Persistence**: Remembers your theme choice across sessions
-- **Smooth Transitions**: Beautiful animations when switching themes
-- **SVG Icons**: Professional Material Design icons for theme toggle
+## ✨ Features
 
-### 🧮 Calculator Functions
-- **Basic Operations**: `+ - * /`
-- **Advanced Functions**:
-  - Square Root `√`
-  - Percentage `%`
-  - Toggle Sign `±`
-- **Memory Functions**:
-  - **M+**: Add to memory
-  - **M-**: Subtract from memory
-  - **MR**: Recall memory
-  - **MC**: Clear memory
-  - **Memory Indicator**: Visual "M" indicator when memory is active
-- **Numbers & Decimal**: `0-9` and `.`
-- **Clear Functions**: `AC` (All Clear), `DEL` (Delete last digit)
+### 🎨 Modern Design
+- **Dark & Light Mode** - Toggle between themes with one click
+- **Fully Responsive** - Works seamlessly on mobile, tablet, and desktop
+- **Beautiful UI/UX** - Clean, intuitive interface with smooth animations
+- **Solar Panel Design** - Realistic calculator appearance
 
-### 📱 Responsive Design
-- **Universal Compatibility**: Works perfectly on all devices with optimized breakpoints
-  - 📱 **Extra Small Phones** (up to 360px) - Ultra compact layout
-  - 📱 **Small Phones** (361px - 420px) - Optimized mobile view
-  - 📱 **Medium Phones** (421px - 767px) - Standard mobile layout
-  - 📱 **Tablets** (768px - 1024px) - Perfect for iPad and tablets
-  - 💻 **Laptops** (1025px - 1919px) - Desktop comfortable view
-  - 🖥️ **4K & Large Displays** (1920px+) - Enhanced for big screens
-  - 📺 **TV Screens** - Optimized for large displays
-- **Landscape Support**: Special optimization for landscape and short-height devices (< 600px)
-- **Smart Scaling**: All elements scale perfectly with screen size using precise media queries
-- **No Overflow**: Content always fits within viewport with proper spacing
-- **Precise Breakpoints**: 7 different responsive breakpoints for pixel-perfect display
+### 🔢 Calculator 
 
-### ⌨️ Keyboard Support
-- **Numbers**: `0-9`
-- **Decimal**: `.`
-- **Operators**: `+ - * / %`
-- **Actions**:
-  - `Enter` or `=` → Calculate result
-  - `Backspace` → Delete last digit
-  - `Escape` or `C` → Clear all
-  - `N` → Toggle negative
-  - `S` or `R` → Square root
-- **Shift Shortcuts**:
-  - `Shift + 5` → `%`
-  - `Shift + =` → `+`
+#### Smart Calculator
+- Basic arithmetic operations (+, -, ×, ÷)
+- Percentage calculations
+- Square root function (√)
+- Memory functions (MC, MR, M+, M-, ANS)
+- Clear and delete functions
+- Keyboard support
+- All standard calculator features
+- Advanced trigonometric functions (sin, cos, tan)
+- Inverse trigonometric functions
+- Logarithmic functions (log, ln)
+- Exponential functions
+- Power and root operations (^, √)
+- Pi (π) and Euler's number (e)
+- Factorial calculations (!)
 
-### 🎯 UI/UX Features
-- **Live Formula Display**: Shows full calculation above result
-- **Auto Scroll**: Long numbers scroll automatically
-- **Error Handling**: Invalid expressions show "Error" and auto-reset
-- **Button Feedback**: Realistic 3D press effects
-- **Solar Panel Design**: Authentic calculator aesthetic
-- **Memory Indicator**: Visual feedback for memory operations
-- **Smooth Animations**: Polished hover and click effects
+#### More Calculators
+Specialized calculators organized by category:
 
----
+**💰 Finance & Business**
+- Mortgage Calculator
+- Auto Loan Calculator
+- Payment Calculator
+- Amortization Calculator
+- Currency Calculator
+- Finance Calculator
+- Income Tax Calculator
+- Salary Calculator
+- Interest Rate Calculator
+- House Affordability Calculator
+- Rent Calculator
+- Estate Tax Calculator
+- Social Security Calculator
+- Annuity Payout Calculator
+- Credit Cards Payoff Calculator
+- Debt Consolidation Calculator
+- Student Loan Calculator
+- Simple Interest Calculator
+- Bond Calculator
+- IRA Calculator
+- VAT Calculator
+- Auto Lease Calculator
+- Average Return Calculator
+- Discount Calculator
+- Debt-to-Income Ratio Calculator
+- Take-Home-Paycheck Calculator
+- Boat Loan Calculator
+- Refinance Calculator
+- Rental Property Calculator
+- ROI Calculator
+- FHA Loan Calculator
+- Down Payment Calculator
+- Payback Period Calculator
+- Future Value Calculator
+- Mortgage Calculator UK
+- Mortgage Amortization Calculator
+- Loan Calculator
+- Interest Calculator
+- Retirement Calculator
+- Investment Calculator
+- Inflation Calculator
+- Mortgage Payoff Calculator
+- Compound Interest Calculator
+- 401K Calculator
+- Sales Tax Calculator
+- Savings Calculator
+- Marriage Tax Calculator
+- Pension Calculator
+- Annuity Calculator
+- Credit Card Calculator
+- Debt Payoff Calculator
+- Repayment Calculator
+- College Cost Calculator
+- CD Calculator
+- Roth IRA Calculator
+- RMD Calculator
+- Cash Back or Low Interest Calculator
+- Depreciation Calculator
+- Margin Calculator
+- Business Loan Calculator
+- Real Estate Calculator
+- Personal Loan Calculator
+- Lease Calculator
+- Budget Calculator
+- IRR Calculator
+- APR Calculator
+- VA Mortgage Calculator
+- Rent vs. Buy Calculator
+- Present Value Calculator
+- Commission Calculator
+- Canadian Mortgage Calculator
+- Percent Off Calculator
 
-## 📂 Project Structure
+**💪 Health & Fitness**
+- BMI Calculator
+- Body Fat Calculator
+- Macro Calculator
+- Pregnancy Calculator
+- Pregnancy Conception Calculator
+- Pace Calculator
+- Carbohydrate Calculator
+- Healthy Weight Calculator
+- One Rep Max Calculator
+- Protein Calculator
+- TDEE Calculator
+- Conception Calculator
+- GFR Calculator
+- Body Surface Area Calculator
+- Anorexic BMI Calculator
+- Overweight Calculator
+- Calorie Calculator
+- BMR Calculator
+- Ideal Weight Calculator
+- Pregnancy Weight Gain Calculator
+- Due Date Calculator
+- Army Body Fat Calculator
+- Lean Body Mass Calculator
+- Calories Burned Calculator
+- Target Heart Rate Calculator
+- Fat Intake Calculator
+- Ovulation Calculator
+- Period Calculator
+- Body Type Calculator
+- BAC Calculator
+- Weight Watcher Points Calculator
 
-```
-Smart-Calculator/
-├── index.html         # Main HTML structure
-├── style.css          # Styling with responsive layout & themes
-├── script.js          # Calculator logic & functionality
-├── README.md          # Project documentation
-└── LICENSE            # MIT License
-```
+**🧮 Math & Statistics**
+- Scientific Calculator
+- Percentage Calculator
+- Volume Calculator
+- Random Number Generator
+- Percent Error Calculator
+- Binary Calculator
+- Half-Life Calculator
+- Slope Calculator
+- Area Calculator
+- Probability Calculator
+- Mean, Median, Mode, Range Calculator
+- Z-score Calculator
+- Ratio Calculator
+- Circle Calculator
+- Pythagorean Theorem Calculator
+- Root Calculator
+- Greatest Common Factor Calculator
+- Rounding Calculator
+- Scientific Notation Calculator
+- Prime Factorization Calculator
+- Basic Calculator
+- Average Calculator
+- Fraction Calculator
+- Triangle Calculator
+- Standard Deviation Calculator
+- Number Sequence Calculator
+- Exponent Calculator
+- Hex Calculator
+- Quadratic Formula Calculator
+- Log Calculator
+- Sample Size Calculator
+- Statistics Calculator
+- Permutation and Combination Calculator
+- Confidence Interval Calculator
+- Distance Calculator
+- Surface Area Calculator
+- Right Triangle Calculator
+- Least Common Multiple Calculator
+- Factor Calculator
+- Matrix Calculator
+- Big Number Calculator
+- Common Factor Calculator
+- Long Division Calculator
+- P-value Calculator
 
----
-## 📁 File Structure Details
+**⚙️ Physics & Engineering**
+- Voltage Drop Calculator
+- Ohm’s Law Calculator
+- Horsepower Calculator
+- Density Calculator
+- Speed Calculator
+- BTU Calculator
+- Resistor Calculator
+- Wind Chill Calculator
+- Dew Point Calculator
+- Engine Horsepower Calculator
 
-### index.html (Structure)
-- Semantic HTML5 markup
-- Calculator layout with header, display, and button grid
-- Links to external `style.css` and `script.js`
-- SVG logo and theme toggle icons
+**🏗️ Construction & Home**
+- Concrete Calculator
+- Roofing Calculator
+- Tile Calculator
+- Gravel Calculator
+- Stair Calculator
+- Paint Calculator
+- Square Footage Calculator
+- Mulch Calculator
+- Flooring Calculator
+- Insulation Calculator
 
-### style.css (Styling)
-- CSS Variables for easy theming
-- Complete dark and light theme definitions
-- 7 responsive breakpoints for all devices
-- Grid-based button layout
-- Smooth transitions and animations
-- Solar panel and realistic button effects
+**⏰ Time & Date**
+- Age Calculator
+- Date Calculator
+- Day Counter
+- Time Calculator
+- Time Duration Calculator
+- Day of the Week Calculator
+- Time Zone Calculator
+- Sleep Calculator
+- Due Date Calculator
+- Hours Calculator
 
-### script.js (Functionality)
-- Calculator logic and operations
-- Memory functions (M+, M-, MR, MC)
-- Keyboard event handling
-- Theme detection and switching
-- LocalStorage for theme persistence
-- Error handling and validation
+**🔄 Conversion Tools**
+- Temperature Converter
+- Currency Converter
+- Weight Converter
+- Length Converter
+- Speed Converter
+- Shoe Size Converter
+- Mass Calculator
+- Molecular Weight Calculator
 
-## 💻 Installation & Usage
+**🎲 Fun & Miscellaneous**
+- Love Calculator
+- Password Generator
+- Dice Roller
+- Golf Handicap Calculator
+- Tip Calculator
+- Fuel Cost Calculator
+- GPA Calculator
+- Grade Calculator
+- Roman Numeral Converter
+- Surprise Tool
 
-### Method 1: Direct Download
+### 🎯 Key Features
 
-1. **Download the repository:**
-```bash
-git clone https://github.com/abdurrahman101bd/Smart-Calculator.git
-cd Smart-Calculator
-```
+- **Calculation History** - View and reuse previous calculations
+- **Keyboard Shortcuts** - Full keyboard support for faster input
+- **Quick Navigation** - Jump to specific calculator sections
+- **Back to Top Button** - Easy navigation on long pages
+- **Theme Persistence** - Your theme preference is saved
+- **No Data Collection** - All calculations are performed locally
 
-2. **Open the project:**
-   - Simply open `index.html` in your browser
-   - All CSS is in `style.css` and JavaScript in `script.js`
-   - No server or build process required!
+## 🚀 Demo
 
-### Method 2: GitHub Pages
-
-Visit the live demo directly (no download needed).
-
----
-
-## 🌐 Live Demo
-
-Try the calculator now:  
-
+Check out the live demo
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-Click%20Here-brightgreen?style=for-the-badge&logo=google-chrome)](https://abdurrahman101bd.github.io/Smart-Calculator)
 
 ---
 
-## 🎨 Screenshots
+## 🛠️ Technologies Used
+
+- **HTML5** - Semantic markup
+- **CSS3** - Modern styling with gradients, animations, and grid/flexbox
+- **Vanilla JavaScript** - No dependencies, pure JS
+- **localStorage** - For saving user preferences
+- **SVG Icons** - Scalable vector graphics for crisp icons
 
 
-### SMART CALCULATOR 
-![Screenshot](assets/Smart-Calculator.png)
+## ⌨️ Keyboard Shortcuts
 
----
+- `0-9` - Number input
+- `+` - Addition
+- `-` - Subtraction
+- `*` - Multiplication
+- `/` - Division
+- `%` - Percentage
+- `.` - Decimal point
+- `Enter` or `=` - Calculate result
+- `Backspace` or `Delete` - Delete last character
+- `Escape` or `c` - Clear all
+- `A` - Use previous answer (ANS)
+- `s` - sin(
+- `c` - cos(
+- `t` - tan(
+- `l` - log(
+- `n` - ln(
+- `r` - Square root (√)
+- `p` - Pi (π)
+- `!` - Factorial
+- `(` and `)` - Parentheses
+- `Shift + S` - Memory Save (MS)
+- `Shift + R` - Memory Recall (MR)
+- `Shift + C` - Memory Clear (MC)
+- `Ctrl + C` - Copy current display
 
 ## 🎨 Customization
 
-### Colors & Theme Variables
+### Change Color Theme
 
-#### Dark Theme (Default)
-Modify CSS variables in `:root` section of `style.css`:
+Edit the CSS variables in `calculator.css`:
+
 ```css
 :root {
   --bg: #222831;
@@ -176,193 +340,68 @@ Modify CSS variables in `:root` section of `style.css`:
 }
 ```
 
-#### Light Theme
-Light theme colors are defined in `body.light-mode` class. Key colors:
-```css
-body.light-mode {
-  background: linear-gradient(180deg, #e8f4f8, #d4e7f0);
-}
-/* Buttons */
-.btn.ghost { color: #e67e22; }  /* AC, DEL */
-.btn.op { color: #f39c12; }     /* Operators */
-.btn.memory { color: #3498db; }  /* Memory buttons */
+### Add New Calculator
+
+1. Add a new card in `more.html`:
+```html
+<div class="calculator-card" onclick="window.location.href='your-calculator.html'">
+  <div class="card-icon">🎯</div>
+  <h3 class="card-title">Your Calculator</h3>
+  <p class="card-description">Description here</p>
+</div>
 ```
 
-### Component Styling
+2. Create your calculator HTML file
+3. Use the existing CSS structure for consistency
 
-Located in `style.css`:
-- **Header / Solar Panels**: `.power` divs for authentic calculator look
-- **Theme Toggle**: `.theme-toggle` button with SVG icons
-- **Display**: `.display` with formula and result sections
-- **Buttons**: Various classes:
-  - `.btn` - Normal number buttons
-  - `.btn.eq` - Equal button (gradient red)
-  - `.btn.op` - Operator buttons (yellow)
-  - `.btn.ghost` - AC, DEL buttons (yellow)
-  - `.btn.memory` - Memory function buttons (cyan)
-- **Memory Indicator**: `.memory-indicator` shows when memory has value
+## 🤝 Contributing
 
-### Responsive Breakpoints
+Contributions are welcome! Here's how you can help:
 
-Easily adjust breakpoints in `style.css`:
-```css
-@media (max-width: 360px) { /* Extra small phones */ }
-@media (min-width: 361px) and (max-width: 420px) { /* Small phones */ }
-@media (min-width: 421px) and (max-width: 767px) { /* Medium phones */ }
-@media (min-width: 768px) and (max-width: 1024px) { /* Tablets */ }
-@media (min-width: 1025px) and (max-width: 1919px) { /* Laptops */ }
-@media (min-width: 1920px) { /* 4K displays */ }
-@media (max-height: 600px) { /* Landscape mode */ }
-```
+1. **Fork the repository**
+2. **Create a new branch** (`git checkout -b feature/amazing-feature`)
+3. **Make your changes**
+4. **Commit your changes** (`git commit -m 'Add some amazing feature'`)
+5. **Push to the branch** (`git push origin feature/amazing-feature`)
+6. **Open a Pull Request**
 
----
+### Contribution Guidelines
 
-## ⚡ Technical Highlights
+- Follow the existing code style
+- Test your changes on multiple browsers
+- Ensure responsiveness on different screen sizes
+- Update documentation if needed
+- Add comments for complex logic
 
-### Performance
-- **Lightweight**: Total size under 100KB (HTML + CSS + JS combined)
-- **Zero Dependencies**: Pure vanilla JavaScript, no frameworks
-- **Fast Load**: Instant page load with optimized file structure
-- **Efficient**: Optimized calculations and minimal DOM updates
-- **Modular Code**: Separated HTML, CSS, and JavaScript files for better maintainability
+## 🐛 Bug Reports
 
-### Code Quality
-- **Clean Code**: Well-organized and commented
-- **ES6+**: Modern JavaScript features
-- **Responsive**: Mobile-first design approach with 7 breakpoints
-- **Cross-browser**: Works on all modern browsers
-- **Modular Structure**: Separated HTML, CSS, and JavaScript files
-- **Maintainable**: Easy to customize and extend
+Found a bug? Please open an issue with:
+- Browser and version
+- Operating system
+- Steps to reproduce
+- Expected vs actual behavior
+- Screenshots (if applicable)
 
-### Smart Features
-- **System Theme Detection**: Uses `prefers-color-scheme` media query
-- **LocalStorage**: Theme preference persistence across sessions
-- **Precise Responsive Design**: 7 carefully crafted breakpoints:
-  - Up to 360px (Extra small phones)
-  - 361px - 420px (Small phones)
-  - 421px - 767px (Medium phones)
-  - 768px - 1024px (Tablets)
-  - 1025px - 1919px (Laptops)
-  - 1920px+ (4K displays)
-  - Height < 600px (Landscape mode)
-- **Grid Layout**: Perfect button alignment on all screens
-- **CSS Variables**: Easy theme customization
-- **Smooth Transitions**: Polished animations throughout
+## 📝 License
 
----
+This project is licensed under the MIT License - see the [MIT License](LICENSE) file for details.
 
-## 🛠 Built With
-
-- **HTML5**: Semantic markup structure
-- **CSS3**: 
-  - Flexbox & Grid layouts
-  - CSS Variables for theming
-  - Linear Gradients & Box Shadows
-  - 7 Responsive breakpoints with Media Queries
-  - Smooth transitions and animations
-  - Mobile-first approach
-- **JavaScript (ES6+)**:
-  - Event handling (click & keyboard)
-  - LocalStorage API for preferences
-  - MediaQuery API for theme detection
-  - Dynamic DOM manipulation
-  - Modular function structure
-
----
-
-## 📖 How to Use
-
-### Basic Operations
-1. Click number buttons or type on keyboard
-2. Use operator buttons for calculations
-3. Press `=` or `Enter` to get result
-4. Use `AC` to clear all or `DEL` to delete last digit
-
-### Memory Functions
-1. **M+**: Adds current display value to memory
-2. **M-**: Subtracts current value from memory
-3. **MR**: Recalls memory value to display
-4. **MC**: Clears memory (indicator disappears)
-5. **Memory Indicator**: "M" appears when memory has value
-
-### Theme Switching
-1. Click the moon/sun icon in top-right
-2. Or let it auto-detect your system preference
-3. Your choice is saved automatically
-
-### Advanced Functions
-1. **Square Root**: Click `√` or press `S/R`
-2. **Percentage**: Click `%` or press `%`
-3. **Toggle Sign**: Click `±` or press `N`
-
----
-
-## 🔧 Browser Support
-
-- ✅ Chrome (90+)
-- ✅ Firefox (88+)
-- ✅ Safari (14+)
-- ✅ Edge (90+)
-- ✅ Opera (76+)
-- ✅ Mobile browsers (iOS Safari, Chrome Mobile)
-
----
-
-## 📢 Contributions
-
-Contributions, issues, and feature requests are welcome!
-
-1. Fork the project
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
----
-
-## 🐛 Known Issues
-
-None currently! Report issues [here](https://github.com/abdurrahman101bd/Smart-Calculator/issues).
-
----
-
-## 📝 Changelog
-
-### Version 2.0 (Current)
-- ✨ Added Dark/Light theme toggle
-- ✨ System theme auto-detection
-- ✨ Memory functions (M+, M-, MR, MC)
-- ✨ Square root function
-- ✨ Improved responsive design for all devices
-- ✨ Better keyboard support
-- ✨ Enhanced UI with smooth animations
-
-### Version 1.0
-- 🎉 Initial release
-- Basic calculator functions
-- Dark theme UI
-- Keyboard support
-
----
-
-## 🔖 License
-
-This project is licensed under the [MIT License](LICENSE).
-
----
-
-## 🎯 Author
+## 👥 Authors
 
 **Abdur Rahman**
 
 [![GitHub](https://img.shields.io/badge/GitHub-Profile-181717?style=for-the-badge&logo=github)](https://github.com/abdurrahman101bd)
 [![Gmail](https://img.shields.io/badge/Email-abdurrahman101bd@gmail.com-red?style=for-the-badge&logo=gmail&logoColor=white)](mailto:abdurrahman101bd@gmail.com)
 
-Modern Smart Calculator for web and mobile, designed with passion for minimalism and usability.
 
----
+## 🙏 Acknowledgments
 
-## 🌍 Connect With Me
+- Inspired by modern calculator designs
+- Icons from Google Material Design
+- Font: Inter from Google Fonts
+- Community feedback and suggestions
+
+## 📞 Contact
 
 [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/abdurrahman101bd)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/abdurrahman101bd)
@@ -371,36 +410,52 @@ Modern Smart Calculator for web and mobile, designed with passion for minimalism
 
 ---
 
-## 💡 Future Enhancements
+## 🗺️ Roadmap
 
-- [ ] Scientific calculator mode
-- [ ] Calculation history
-- [ ] Export calculations
-- [ ] Custom color themes
-- [ ] Haptic feedback on mobile
-- [ ] Sound effects toggle
-- [ ] Multiple calculator layouts
+### Upcoming Features
+- [ ] More specialized calculators (mortgage, retirement, etc.)
+- [ ] Unit converter improvements
+- [ ] Graph plotting 
+- [ ] PWA (Progressive Web App) support
+- [ ] Offline mode
+- [ ] User accounts (optional)
+- [ ] Calculation sharing
+
+## 📊 Browser Support
+
+| Browser | Version |
+|---------|---------|
+| Chrome  | ✅ Latest |
+| Firefox | ✅ Latest |
+| Safari  | ✅ Latest |
+| Edge    | ✅ Latest |
+| Opera   | ✅ Latest |
+
+## 🔒 Privacy
+
+- No user data collection
+- No cookies (except localStorage for preferences)
+- All calculations performed locally
+- No analytics or tracking
+
+## ⚖️ Disclaimer
+
+This calculator is provided for general use and educational purposes. For critical calculations (financial, medical, engineering), please verify results with professional tools and experts.
+
+## 🌟 Star History
+
+If you find this project useful, please consider giving it a star ⭐
+
+[![Star History Chart](https://api.star-history.com/svg?repos=abdurrahman101bd/Smart-Calculator&type=Date)](https://star-history.com/#abdurrahman101bd/Smart-Calculator&Date)
 
 ---
 
-## ⭐ Show Your Support
+<p align="center">
+  Made with ❤️ by <a href="https://github.com/abdurrahman101bd">Abdur Rahman</a>
+</p>
 
-Give a ⭐️ if this project helped you!
-
----
-
-## 📊 Stats
-
-![GitHub repo size](https://img.shields.io/github/repo-size/abdurrahman101bd/Smart-Calculator)
-![GitHub language count](https://img.shields.io/github/languages/count/abdurrahman101bd/Smart-Calculator)
-![GitHub top language](https://img.shields.io/github/languages/top/abdurrahman101bd/Smart-Calculator)
-
----
-
-⌛ **Enjoy your Smart Calculator!** ⌛
-
-Made with ❤️ by [Abdur Rahman](https://github.com/abdurrahman101bd)
-
----
+<p align="center">
+  <a href="#-smart-calculator">Back to Top ⬆️</a>
+</p>
 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">

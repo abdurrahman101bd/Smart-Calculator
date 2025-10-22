@@ -1,272 +1,475 @@
+// Calculator State
+let currentValue = '0';
+let previousValue = '';
+let operation = null;
+let memory = 0;
+let lastAnswer = 0;
+let history = [];
+let lastResult = null;
+let lastOperation = null;
+let isError = false;
+
 // DOM Elements
 const display = document.getElementById('display');
-const formula = document.getElementById('formula');
-const keys = document.getElementById('keys');
+const historyDisplay = document.getElementById('history');
 const memoryIndicator = document.getElementById('memoryIndicator');
 const themeToggle = document.getElementById('themeToggle');
+const historyToggle = document.getElementById('historyToggle');
+const shortcutsToggle = document.getElementById('shortcutsToggle');
+const historyPanel = document.getElementById('historyPanel');
+const shortcutsPanel = document.getElementById('shortcutsPanel');
+const historyList = document.getElementById('historyList');
+const closeHistory = document.getElementById('closeHistory');
+const closeShortcuts = document.getElementById('closeShortcuts');
+const clearHistoryBtn = document.getElementById('clearHistory');
+const displaySection = document.getElementById('displaySection');
 
-// State
-let current = '0';
-let exp = '';
-let lastOp = false;
-let memory = 0;
-
-// Detect system theme preference
-function detectSystemTheme() {
-    // Check if user has saved preference
-    const savedTheme = localStorage.getItem('theme');
-    
-    if (savedTheme) {
-        // Use saved preference
-        if (savedTheme === 'light') {
-            document.body.classList.add('light-mode');
-            themeToggle.innerHTML = lightModeIcon;
-        } else {
-            themeToggle.innerHTML = darkModeIcon;
-        }
-    } else {
-        // Detect system preference
-        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
-            document.body.classList.add('light-mode');
-            themeToggle.innerHTML = lightModeIcon;
-            localStorage.setItem('theme', 'light');
-        } else {
-            themeToggle.innerHTML = darkModeIcon;
-            localStorage.setItem('theme', 'dark');
-        }
+// Load saved data on startup
+function loadSavedData() {
+  // Load theme
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    document.body.classList.remove('light-mode');
+  }
+  
+  // Load memory
+  const savedMemory = localStorage.getItem('calcMemory');
+  if (savedMemory) {
+    memory = parseFloat(savedMemory) || 0;
+  }
+  
+  // Load last answer
+  const savedAns = localStorage.getItem('calcAns');
+  if (savedAns) {
+    lastAnswer = parseFloat(savedAns) || 0;
+  }
+  
+  // Load history
+  try {
+    const savedHistory = localStorage.getItem('calcHistory');
+    if (savedHistory) {
+      history = JSON.parse(savedHistory);
     }
+  } catch (e) {
+    console.error('Failed to load history:', e);
+  }
 }
 
-// Theme Toggle
-const darkModeIcon = '<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M480-120q-150 0-255-105T120-480q0-150 105-255t255-105q14 0 27.5 1t26.5 3q-41 29-65.5 75.5T444-660q0 90 63 153t153 63q55 0 101-24.5t75-65.5q2 13 3 26.5t1 27.5q0 150-105 255T480-120Zm0-80q88 0 158-48.5T740-375q-20 5-40 8t-40 3q-123 0-209.5-86.5T364-660q0-20 3-40t8-40q-78 32-126.5 102T200-480q0 116 82 198t198 82Zm-10-270Z"/></svg>';
+// Save data to localStorage
+function saveHistory() {
+  try {
+    localStorage.setItem('calcHistory', JSON.stringify(history));
+  } catch (e) {
+    console.error('Failed to save history:', e);
+  }
+}
 
-const lightModeIcon = '<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#f39c12"><path d="M480-360q50 0 85-35t35-85q0-50-35-85t-85-35q-50 0-85 35t-35 85q0 50 35 85t85 35Zm0 80q-83 0-141.5-58.5T280-480q0-83 58.5-141.5T480-680q83 0 141.5 58.5T680-480q0 83-58.5 141.5T480-280ZM200-440H40v-80h160v80Zm720 0H760v-80h160v80ZM440-760v-160h80v160h-80Zm0 720v-160h80v160h-80ZM256-650l-101-97 57-59 96 100-52 56Zm492 496-97-101 53-55 101 97-57 59Zm-98-550 97-101 59 57-100 96-56-52ZM154-212l101-97 55 53-97 101-59-57Zm326-268Z"/></svg>';
-
+// Theme Toggle with localStorage
 themeToggle.addEventListener('click', () => {
-    document.body.classList.toggle('light-mode');
-    
-    // Change icon
-    if (document.body.classList.contains('light-mode')) {
-        themeToggle.innerHTML = lightModeIcon;
-    } else {
-        themeToggle.innerHTML = darkModeIcon;
-    }
-    
-    // Save preference
-    localStorage.setItem('theme', document.body.classList.contains('light-mode') ? 'light' : 'dark');
+  document.body.classList.toggle('light-mode');
+  const isLight = document.body.classList.contains('light-mode');
+  localStorage.setItem('theme', isLight ? 'light' : 'dark');
+  
+  themeToggle.innerHTML = isLight
+    ? '<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"><path d="M480-360q50 0 85-35t35-85q0-50-35-85t-85-35q-50 0-85 35t-35 85q0 50 35 85t85 35Zm0 80q-83 0-141.5-58.5T280-480q0-83 58.5-141.5T480-680q83 0 141.5 58.5T680-480q0 83-58.5 141.5T480-280ZM200-440H40v-80h160v80Zm720 0H760v-80h160v80ZM440-760v-160h80v160h-80Zm0 720v-160h80v160h-80ZM256-650l-101-97 57-59 96 100-52 56Zm492 496-97-101 53-55 101 97-57 59Zm-98-550 97-101 59 57-100 96-56-52ZM154-212l101-97 55 53-97 101-59-57Zm326-268Z"/></svg>'
+    : '<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M480-120q-150 0-255-105T120-480q0-150 105-255t255-105q14 0 27.5 1t26.5 3q-41 29-65.5 75.5T444-660q0 90 63 153t153 63q55 0 101-24.5t75-65.5q2 13 3 26.5t1 27.5q0 150-105 255T480-120Zm0-80q88 0 158-48.5T740-375q-20 5-40 8t-40 3q-123 0-209.5-86.5T364-660q0-20 3-40t8-40q-78 32-126.5 102T200-480q0 116 82 198t198 82Zm-10-270Z"/></svg>';
 });
 
-// Listen for system theme changes
-if (window.matchMedia) {
-    window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', e => {
-        // Only auto-update if user hasn't manually set a preference recently
-        const savedTheme = localStorage.getItem('theme');
-        if (!savedTheme) {
-            if (e.matches) {
-                document.body.classList.add('light-mode');
-                themeToggle.innerHTML = lightModeIcon;
-            } else {
-                document.body.classList.remove('light-mode');
-                themeToggle.innerHTML = darkModeIcon;
-            }
-        }
-    });
+// Panel Toggles
+historyToggle.addEventListener('click', () => {
+  historyPanel.classList.toggle('active');
+  shortcutsPanel.classList.remove('active');
+});
+
+shortcutsToggle.addEventListener('click', () => {
+  shortcutsPanel.classList.toggle('active');
+  historyPanel.classList.remove('active');
+});
+
+closeHistory.addEventListener('click', () => {
+  historyPanel.classList.remove('active');
+});
+
+closeShortcuts.addEventListener('click', () => {
+  shortcutsPanel.classList.remove('active');
+});
+
+// Update Display with scroll
+function updateDisplay(value = currentValue) {
+  display.textContent = value;
+  display.scrollLeft = display.scrollWidth;
 }
 
-// Initialize theme on load
-detectSystemTheme();
-
-// Update display
-function update() {
-    display.textContent = current;
-    formula.textContent = exp;
-    display.scrollLeft = display.scrollWidth; // scroll to right
+// Calculator Functions
+function factorial(n) {
+  if (n < 0) return NaN;
+  if (n === 0 || n === 1) return 1;
+  let result = 1;
+  for (let i = 2; i <= n; i++) result *= i;
+  return result;
 }
 
-// Update Memory Indicator
+function safeEval(expr) {
+  expr = expr.replace(/π/g, Math.PI.toString())
+             .replace(/e(?![0-9])/g, Math.E.toString())
+             .replace(/\^/g, '**')
+             .replace(/sqrt\(/g, 'Math.sqrt(')
+             .replace(/sin\(/g, 'Math.sin(')
+             .replace(/cos\(/g, 'Math.cos(')
+             .replace(/tan\(/g, 'Math.tan(')
+             .replace(/log\(/g, 'Math.log10(')
+             .replace(/ln\(/g, 'Math.log(');
+  
+  // Handle factorial
+  expr = expr.replace(/(\d+(\.\d+)?)\!/g, (match, num) => {
+    return factorial(parseFloat(num));
+  });
+  
+  try {
+    const result = new Function('return ' + expr)();
+    if (!isFinite(result)) throw new Error('Invalid result');
+    return result;
+  } catch {
+    return 'Error';
+  }
+}
+
+// Add to History with timestamp
+function addToHistory(expression, result) {
+  if (result === 'Error') return;
+  
+  const historyItem = {
+    expression: expression,
+    result: result,
+    timestamp: Date.now()
+  };
+  
+  history.unshift(historyItem);
+  if (history.length > 50) history.pop();
+  
+  saveHistory();
+  updateHistoryDisplay();
+}
+
+function updateHistoryDisplay() {
+  if (history.length === 0) {
+    historyList.innerHTML = '<div class="empty-state">No calculations yet</div>';
+  } else {
+    historyList.innerHTML = history.map((item, index) => `
+      <div class="history-item" data-index="${index}">
+        <div class="history-expr">${item.expression}</div>
+        <div class="history-result">= ${item.result}</div>
+      </div>
+    `).join('');
+  }
+}
+
+// History item click handler
+historyList.addEventListener('click', (e) => {
+  const item = e.target.closest('.history-item');
+  if (!item) return;
+  
+  const index = parseInt(item.dataset.index);
+  const historyItem = history[index];
+  
+  if (historyItem) {
+    currentValue = historyItem.result.toString();
+    isError = false;
+    updateDisplay();
+  }
+});
+
+// Clear history with confirmation
+clearHistoryBtn.addEventListener('click', () => {
+  if (confirm('Clear all history?')) {
+    history = [];
+    saveHistory();
+    updateHistoryDisplay();
+  }
+});
+
+// Memory Functions with localStorage
 function updateMemoryIndicator() {
-    if (memory !== 0) {
-        memoryIndicator.classList.add('active');
-    } else {
-        memoryIndicator.classList.remove('active');
-    }
+  memoryIndicator.classList.toggle('active', memory !== 0);
 }
 
-// Clear everything
+function getCurrentValue() {
+  if (currentValue === "" || isError) return 0;
+  const result = safeEval(currentValue);
+  return result === 'Error' ? 0 : result;
+}
+
+function handleMemory(action) {
+  if (action === 'ans') {
+    if (!isError) {
+      if (currentValue === '0') {
+        currentValue = lastAnswer.toString(); // Replace 0 with lastAnswer
+      } else {
+        currentValue += lastAnswer.toString(); // Append normally
+      }
+      updateDisplay();
+    }
+    return;
+  }
+
+  const currentVal = getCurrentValue();
+  
+  switch(action) {
+    case 'mc':
+      memory = 0;
+      break;
+    case 'mr':
+      if (!isError) {
+        currentValue += memory.toString();
+        updateDisplay();
+      }
+      break;
+    case 'm+':
+      memory += currentVal;
+      break;
+    case 'm-':
+      memory -= currentVal;
+      break;
+    case 'ms':
+      memory = currentVal;
+      break;
+  }
+  
+  localStorage.setItem('calcMemory', memory.toString());
+  updateMemoryIndicator();
+}
+
+// Clear All function
 function clearAll() {
-    current = '0';
-    exp = '';
-    lastOp = false;
-    update();
+  currentValue = "0";
+  lastResult = null;
+  lastOperation = null;
+  isError = false;
+  historyDisplay.textContent = "\u00A0";
+  updateDisplay();
 }
 
-// Delete last character
-function del() {
-    if (current.length > 1) current = current.slice(0, -1);
-    else current = '0';
-    update();
+// Delete Last function
+function deleteLast() {
+  if (isError) {
+    clearAll();
+    return;
+  }
+  currentValue = currentValue.slice(0, -1) || "0";
+  updateDisplay();
 }
 
-// Toggle negative
-function neg() {
-    if (current !== '0') current = current.startsWith('-') ? current.slice(1) : '-' + current;
-    update();
+// Calculate function with repeat operation
+function calculate() {
+  if (isError) {
+    clearAll();
+    return;
+  }
+
+  historyDisplay.textContent = currentValue;
+  const result = safeEval(currentValue);
+  
+  if (result === 'Error') {
+    currentValue = 'Error';
+    isError = true;
+  } else {
+    addToHistory(currentValue, result);
+    
+    const match = currentValue.match(/([+\-*/^].+)$/);
+    lastOperation = match ? match[1] : null;
+    lastResult = result;
+    lastAnswer = result;
+    currentValue = String(Math.round(result * 1000000000) / 1000000000);
+    localStorage.setItem('calcAns', lastAnswer.toString());
+  }
+  
+  updateDisplay();
 }
 
-// Percent
-function percent() {
-    current = String(parseFloat(current) / 100);
-    update();
-}
-
-// Square Root
-function sqrt() {
-    try {
-        const num = parseFloat(current);
-        if (num < 0) {
-            current = 'Error';
-            update();
-            setTimeout(() => { current = '0'; update(); }, 1000);
-        } else {
-            current = String(Math.sqrt(num));
-            update();
+// Button Click Handler
+document.getElementById('keys').addEventListener('click', (e) => {
+  const btn = e.target.closest('.key');
+  if (!btn) return;
+  
+  // Button press animation
+  btn.style.transform = 'scale(0.95)';
+  setTimeout(() => btn.style.transform = '', 100);
+  
+  const action = btn.dataset.action;
+  const value = btn.dataset.value;
+  const closeBracket = btn.dataset.closeBracket === 'true';
+  
+  if (action && (action.startsWith('m') || action === 'ans')) {
+    handleMemory(action);
+    return;
+  }
+  
+  if (action) {
+    switch(action) {
+      case 'clear':
+        clearAll();
+        break;
+      case 'delete':
+        deleteLast();
+        break;
+      case 'equals':
+        if (isError) {
+          clearAll();
+          return;
         }
-    } catch {
-        current = 'Error';
-        update();
-        setTimeout(() => { current = '0'; update(); }, 1000);
+
+        const lastResultStr = lastResult !== null ? String(lastResult) : null;
+
+        if (lastResultStr !== null && currentValue === lastResultStr && lastOperation) {
+          historyDisplay.textContent = currentValue + lastOperation;
+          currentValue = String(safeEval(lastResult + lastOperation));
+          lastResult = safeEval(currentValue);
+          lastAnswer = lastResult;
+          localStorage.setItem('calcAns', lastAnswer.toString());
+          updateDisplay();
+          return;
+        }
+
+        if (currentValue === "" && lastResult !== null && lastOperation) {
+          historyDisplay.textContent = lastResult + lastOperation;
+          currentValue = String(safeEval(lastResult + lastOperation));
+          lastResult = safeEval(currentValue);
+          lastAnswer = lastResult;
+          localStorage.setItem('calcAns', lastAnswer.toString());
+          updateDisplay();
+          return;
+        }
+
+        calculate();
+        break;
     }
-}
-
-// Memory Functions
-function memoryAdd() {
-    memory += parseFloat(current) || 0;
-    updateMemoryIndicator();
-}
-
-function memorySubtract() {
-    memory -= parseFloat(current) || 0;
-    updateMemoryIndicator();
-}
-
-function memoryRecall() {
-    current = String(memory);
-    update();
-}
-
-function memoryClear() {
-    memory = 0;
-    updateMemoryIndicator();
-}
-
-// Input digit or dot
-function digit(d) {
-    if (lastOp) {
-        current = d === '.' ? '0.' : d;
-        lastOp = false;
+  } else if (value) {
+    if (isError) {
+      clearAll();
+    }
+    
+    if (currentValue === '0' && value !== '.') {
+      currentValue = value;
     } else {
-        if (d === '.' && current.includes('.')) return;
-        if (current === '0' && d !== '.') current = d;
-        else current += d;
+      currentValue += value;
     }
-    update();
-}
-
-// Operator
-function op(o) {
-    if (lastOp) exp = exp.slice(0, -1) + o;
-    else exp += current + o;
-    lastOp = true;
-    current = '0';
-    update();
-}
-
-// Evaluate expression
-function equals() {
-    try {
-        let e = exp + current;
-        if (!/^[0-9+\-*/.%\s()]+$/.test(e)) throw 'Err';
-        e = e.replace(/%/g, '/100');
-        const r = Function('"use strict";return(' + e + ')')();
-        current = String(r);
-        exp = '';
-        lastOp = false;
-        update();
-    } catch {
-        current = 'Error';
-        exp = '';
-        update();
-        setTimeout(() => { current = '0'; update(); }, 1000);
-    }
-}
-
-// Handle button clicks
-keys.addEventListener('click', e => {
-    const b = e.target.closest('button');
-    if (!b) return;
-
-    const val = b.dataset.value;
-    const act = b.dataset.action;
-
-    if (act === 'clear') return clearAll();
-    if (act === 'del') return del();
-    if (act === 'neg') return neg();
-    if (act === 'equals') return equals();
-    if (act === 'sqrt') return sqrt();
     
-    // Memory actions
-    if (act === 'mc') return memoryClear();
-    if (act === 'mr') return memoryRecall();
-    if (act === 'm+') return memoryAdd();
-    if (act === 'm-') return memorySubtract();
-    
-    if (val) {
-        if (/[0-9.]/.test(val)) digit(val);
-        else if (/[%+\-*/]/.test(val)) {
-            if (val === '%') percent();
-            else op(val);
-        }
+    if (closeBracket) {
+      currentValue += ")";
     }
+    
+    updateDisplay();
+  }
 });
 
-// Keyboard support with Shift operators
-document.addEventListener('keydown', e => {
-    const key = e.key;
-    const shift = e.shiftKey;
+// Keyboard Support & Shortcuts
+document.addEventListener('keydown', (e) => {
+  // Don't interfere if user is typing in display
+  if (document.activeElement === display) return;
 
-    // Numbers
-    if (/[0-9]/.test(key)) return digit(key);
+  // Numbers & Operators
+  if (/^[0-9+\-*/%^().]$/.test(e.key)) {
+    if (isError) clearAll();
+    if (currentValue === '0' && e.key !== '.') currentValue = e.key;
+    else currentValue += e.key;
+    updateDisplay();
+  }
+  // Enter = Calculate
+  else if (e.key === 'Enter') {
+    document.querySelector('[data-action="equals"]').click();
+  }
+  // Escape = Clear All
+  else if (e.key === 'Escape') {
+    clearAll();
+  }
+  // Backspace = Delete Last
+  else if (e.key === 'Backspace') {
+    e.preventDefault();
+    deleteLast();
+  }
+  // ANS
+  else if (e.key.toLowerCase() === 'a') handleMemory('ans');
 
-    // Dot
-    if (key === '.') return digit('.');
+  // Additional shortcuts
+  else if (e.key.toLowerCase() === 's') appendValue('sin(');
+  else if (e.key.toLowerCase() === 'c') appendValue('cos(');
+  else if (e.key.toLowerCase() === 't') appendValue('tan(');
+  else if (e.key.toLowerCase() === 'l') appendValue('log(');
+  else if (e.key.toLowerCase() === 'n') appendValue('ln(');
+  else if (e.key.toLowerCase() === 'r') appendValue('sqrt(');
+  else if (e.key.toLowerCase() === 'p') appendValue('π');
+  else if (e.key.toLowerCase() === 'f') appendValue('!');
 
-    // Operators
-    if (key === '+' || key === '-' || key === '*' || key === '/' || key === '%') {
-        if (key === '%') percent();
-        else op(key);
-        return;
-    }
+  // Memory shortcuts
+  else if (e.shiftKey && e.key.toLowerCase() === 's') handleMemory('ms');
+  else if (e.shiftKey && e.key.toLowerCase() === 'r') handleMemory('mr');
+  else if (e.shiftKey && e.key.toLowerCase() === 'c') handleMemory('mc');
 
-    // Shifted operators (optional)
-    if (shift && key === '5') return op('%'); // Shift+5 = %
-    if (shift && key === '=') return op('+'); // Shift+= = +
-
-    // Enter / =
-    if (key === 'Enter' || key === '=') return equals();
-
-    // Backspace
-    if (key === 'Backspace') return del();
-
-    // Clear
-    if (key === 'Escape' || key.toLowerCase() === 'c') return clearAll();
-
-    // Negative toggle
-    if (key.toLowerCase() === 'n') return neg();
-    
-    // Square root
-    if (key.toLowerCase() === 's' || key.toLowerCase() === 'r') return sqrt();
+  // Copy to clipboard
+  else if (e.ctrlKey && e.key.toLowerCase() === 'c') {
+    navigator.clipboard.writeText(currentValue).then(() => {
+      console.log('Copied to clipboard!');
+    });
+  }
 });
 
-// Initialize
-update();
+// Function to append value
+function appendValue(val) {
+  if (isError) clearAll();
+  currentValue += val;
+  updateDisplay();
+}
+
+// Display contenteditable handling
+display.addEventListener('input', (e) => {
+  currentValue = display.textContent;
+  if (currentValue === '0' && display.textContent.length > 1) {
+    currentValue = display.textContent.replace(/^0+/, '');
+    display.textContent = currentValue;
+  }
+  display.scrollLeft = display.scrollWidth;
+});
+
+// Display keydown handler (prevent unwanted keys)
+display.addEventListener('keydown', (e) => {
+  const allowedKeys = ['Backspace', 'Delete', 'ArrowLeft', 'ArrowRight', 'Home', 'End'];
+  const isNumber = /^[0-9]$/.test(e.key);
+  const isOperator = /^[+\-*/%^().]$/.test(e.key);
+
+  if (e.key === 'Enter') {
+    e.preventDefault();
+    document.querySelector('[data-action="equals"]').click();
+    display.blur();
+    return;
+  }
+  if (e.key === 'Escape') {
+    e.preventDefault();
+    clearAll();
+    display.blur();
+    return;
+  }
+  if (!isNumber && !isOperator && !allowedKeys.includes(e.key) && !e.ctrlKey && !e.metaKey) {
+    e.preventDefault();
+  }
+});
+
+// Focus on display when clicking display section
+displaySection.addEventListener('click', (e) => {
+  if (e.target === displaySection || e.target === historyDisplay) {
+    display.focus();
+    const range = document.createRange();
+    const sel = window.getSelection();
+    if (display.childNodes.length > 0) {
+      range.setStart(display.childNodes[0], display.textContent.length);
+      range.collapse(true);
+      sel.removeAllRanges();
+      sel.addRange(range);
+    }
+  }
+});
+
+// Initialize calculator
+loadSavedData();
+updateDisplay();
 updateMemoryIndicator();
+updateHistoryDisplay();
