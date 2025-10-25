@@ -280,7 +280,6 @@ Specialized calculators organized by category:
 
 ## 🚀 Demo
 
-Check out the live demo
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-Click%20Here-brightgreen?style=for-the-badge&logo=google-chrome)](https://abdurrahman101bd.github.io/Smart-Calculator)
 
 ---
