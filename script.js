@@ -203,9 +203,9 @@ function handleMemory(action) {
   if (action === 'ans') {
     if (!isError) {
       if (currentValue === '0') {
-        currentValue = lastAnswer.toString(); // Replace 0 with lastAnswer
+        currentValue = lastAnswer.toString();
       } else {
-        currentValue += lastAnswer.toString(); // Append normally
+        currentValue += lastAnswer.toString();
       }
       updateDisplay();
     }
@@ -362,10 +362,72 @@ document.getElementById('keys').addEventListener('click', (e) => {
   }
 });
 
-// Keyboard Support & Shortcuts
+// Keyboard Support & Shortcuts - FIXED VERSION
 document.addEventListener('keydown', (e) => {
-  // Don't interfere if user is typing in display
-  if (document.activeElement === display) return;
+  // Memory shortcuts with Shift (check first to avoid conflicts)
+  if (e.shiftKey && !e.ctrlKey && !e.metaKey) {
+    if (e.key === 'S') {
+      e.preventDefault();
+      handleMemory('ms');
+      return;
+    }
+    else if (e.key === 'R') {
+      e.preventDefault();
+      handleMemory('mr');
+      return;
+    }
+    else if (e.key === 'C') {
+      e.preventDefault();
+      handleMemory('mc');
+      return;
+    }
+  }
+
+  // Copy to clipboard (Ctrl+C or Cmd+C) - FIXED
+  if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'c') {
+    e.preventDefault();
+    navigator.clipboard.writeText(currentValue).then(() => {
+      // Show visual feedback
+      const originalText = display.textContent;
+      const originalColor = display.style.color;
+      display.textContent = 'Copied!';
+      display.style.color = '#4caf50';
+      setTimeout(() => {
+        display.textContent = originalText;
+        display.style.color = originalColor;
+      }, 500);
+    }).catch(err => {
+      console.error('Copy failed:', err);
+    });
+    return;
+  }
+
+  // Check if display is focused
+  const isDisplayFocused = document.activeElement === display;
+  
+  // Global shortcuts that work even when display is focused
+  if (e.key === 'Enter') {
+    e.preventDefault();
+    document.querySelector('[data-action="equals"]').click();
+    if (isDisplayFocused) display.blur();
+    return;
+  }
+  else if (e.key === 'Escape') {
+    e.preventDefault();
+    clearAll();
+    if (isDisplayFocused) display.blur();
+    return;
+  }
+
+  // If display is focused, let it handle basic input naturally
+  if (isDisplayFocused) return;
+
+  // Backspace = Delete Last (only when display not focused)
+  if (e.key === 'Backspace') {
+    e.preventDefault();
+    deleteLast();
+    return;
+  }
 
   // Numbers & Operators
   if (/^[0-9+\-*/%^().]$/.test(e.key)) {
@@ -373,50 +435,61 @@ document.addEventListener('keydown', (e) => {
     if (currentValue === '0' && e.key !== '.') currentValue = e.key;
     else currentValue += e.key;
     updateDisplay();
+    return;
   }
-  // Enter = Calculate
-  else if (e.key === 'Enter') {
-    document.querySelector('[data-action="equals"]').click();
-  }
-  // Escape = Clear All
-  else if (e.key === 'Escape') {
-    clearAll();
-  }
-  // Backspace = Delete Last
-  else if (e.key === 'Backspace') {
+
+  // ANS shortcut
+  if (e.key.toLowerCase() === 'a' && !e.ctrlKey && !e.metaKey && !e.shiftKey) {
     e.preventDefault();
-    deleteLast();
+    handleMemory('ans');
+    return;
   }
-  // ANS
-  else if (e.key.toLowerCase() === 'a') handleMemory('ans');
 
-  // Additional shortcuts
-  else if (e.key.toLowerCase() === 's') appendValue('sin(');
-  else if (e.key.toLowerCase() === 'c') appendValue('cos(');
-  else if (e.key.toLowerCase() === 't') appendValue('tan(');
-  else if (e.key.toLowerCase() === 'l') appendValue('log(');
-  else if (e.key.toLowerCase() === 'n') appendValue('ln(');
-  else if (e.key.toLowerCase() === 'r') appendValue('sqrt(');
-  else if (e.key.toLowerCase() === 'p') appendValue('π');
-  else if (e.key.toLowerCase() === 'f') appendValue('!');
-
-  // Memory shortcuts
-  else if (e.shiftKey && e.key.toLowerCase() === 's') handleMemory('ms');
-  else if (e.shiftKey && e.key.toLowerCase() === 'r') handleMemory('mr');
-  else if (e.shiftKey && e.key.toLowerCase() === 'c') handleMemory('mc');
-
-  // Copy to clipboard
-  else if (e.ctrlKey && e.key.toLowerCase() === 'c') {
-    navigator.clipboard.writeText(currentValue).then(() => {
-      console.log('Copied to clipboard!');
-    });
+  // Additional shortcuts (only without modifiers)
+  if (!e.ctrlKey && !e.metaKey && !e.shiftKey) {
+    if (e.key.toLowerCase() === 's') {
+      e.preventDefault();
+      appendValue('sin(');
+    }
+    else if (e.key.toLowerCase() === 'c') {
+      e.preventDefault();
+      appendValue('cos(');
+    }
+    else if (e.key.toLowerCase() === 't') {
+      e.preventDefault();
+      appendValue('tan(');
+    }
+    else if (e.key.toLowerCase() === 'l') {
+      e.preventDefault();
+      appendValue('log(');
+    }
+    else if (e.key.toLowerCase() === 'n') {
+      e.preventDefault();
+      appendValue('ln(');
+    }
+    else if (e.key.toLowerCase() === 'r') {
+      e.preventDefault();
+      appendValue('sqrt(');
+    }
+    else if (e.key.toLowerCase() === 'p') {
+      e.preventDefault();
+      appendValue('π');
+    }
+    else if (e.key.toLowerCase() === 'f') {
+      e.preventDefault();
+      appendValue('!');
+    }
   }
 });
 
 // Function to append value
 function appendValue(val) {
   if (isError) clearAll();
-  currentValue += val;
+  if (currentValue === '0') {
+    currentValue = val;
+  } else {
+    currentValue += val;
+  }
   updateDisplay();
 }
 
