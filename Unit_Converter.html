@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unit Converter</title>
+
+    <link rel="stylesheet" href="CSS/unitConverter.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-content">
+        <div class="header-left">
+          <button class="back-btn" onclick="window.history.back()">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+            </svg>
+          </button>
+        </div>
+        <div class="header-center">
+          <div class="header-title">
+            <span>Unit</span>
+            <span>Converter</span>
+          </div>
+        </div>
+        <div class="header-right">
+          <div class="header-logo">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path
+                d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14h-2v-4H8v-2h4V7h2v4h4v2h-4v4z"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="main-content">
+      <div class="container">
+        <div class="converter-wrap">
+          <div class="category-tabs">
+            <button
+              class="category-tab active"
+              onclick="switchCategory('length')"
+            >
+              Length
+            </button>
+            <button class="category-tab" onclick="switchCategory('weight')">
+              Weight
+            </button>
+            <button class="category-tab" onclick="switchCategory('volume')">
+              Volume
+            </button>
+            <button class="category-tab" onclick="switchCategory('speed')">
+              Speed
+            </button>
+            <button class="category-tab" onclick="switchCategory('data')">
+              Data
+            </button>
+            <button class="category-tab" onclick="switchCategory('energy')">
+              Energy
+            </button>
+          </div>
+
+          <div class="converter-section">
+            <div class="section-label">From</div>
+            <div class="input-group">
+              <input
+                type="number"
+                class="unit-input"
+                id="fromValue"
+                placeholder="Value"
+                value="1"
+              />
+              <select class="unit-select" id="fromUnit"></select>
+            </div>
+          </div>
+
+          <div class="converter-section">
+            <div class="section-label">To</div>
+            <div class="input-group full-width">
+              <select class="unit-select" id="toUnit"></select>
+            </div>
+          </div>
+
+          <div class="converter-section">
+            <div class="section-label">Result</div>
+            <div class="result-display" id="result">100 cm</div>
+          </div>
+
+          <div class="buttons-grid">
+            <button class="btn" onclick="clearAll()">Clear</button>
+            <button class="btn" onclick="swapUnits()">Swap</button>
+            <button class="btn primary" onclick="convert()">Convert</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="Script/unitConverter.js"></script>
+  </body>
+</html>

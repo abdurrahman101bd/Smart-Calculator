@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Date Calculator</title>
+    <link rel="stylesheet" href="./CSS/dateCalculator.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-content">
+        <div class="header-left">
+          <button class="back-btn" onclick="window.history.back()">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+            </svg>
+          </button>
+        </div>
+        <div class="header-center">
+          <div class="header-title">
+            <span>Date</span>
+            <span>Calculator</span>
+          </div>
+        </div>
+        <div class="header-right">
+          <div class="header-logo">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path
+                d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="main-content">
+      <div class="container">
+        <div class="calculator-wrap">
+          <!-- Mode Tabs -->
+          <div class="mode-tabs">
+            <button class="mode-tab active" onclick="switchMode('difference')">
+              Date Difference
+            </button>
+            <button class="mode-tab" onclick="switchMode('add')">
+              Add/Subtract
+            </button>
+          </div>
+
+          <!-- Difference Mode -->
+          <div id="differenceMode">
+            <div class="input-section">
+              <div class="section-label">From Date</div>
+              <div class="custom-date-input" id="fromDateInput"></div>
+            </div>
+
+            <div class="input-section">
+              <div class="section-label">To Date</div>
+              <div class="custom-date-input" id="toDateInput"></div>
+            </div>
+
+            <div class="input-section">
+              <div class="section-label">Result</div>
+              <div class="result-display" id="differenceResult">
+                0 days
+                <div class="result-label" id="differenceDetails"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Add/Subtract Mode -->
+          <div id="addMode" style="display: none">
+            <div class="input-section">
+              <div class="section-label">Start Date</div>
+              <div class="custom-date-input" id="startDateInput"></div>
+            </div>
+
+            <div class="input-section">
+              <div class="section-label">Add/Subtract</div>
+              <div class="input-group">
+                <input
+                  type="number"
+                  class="number-input"
+                  id="amount"
+                  placeholder="Amount"
+                  value="1"
+                />
+                <select class="unit-select" id="unit">
+                  <option value="days">Days</option>
+                  <option value="weeks">Weeks</option>
+                  <option value="months">Months</option>
+                  <option value="years">Years</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="input-section">
+              <div class="section-label">Result Date</div>
+              <div class="result-display" id="addResult">-</div>
+            </div>
+          </div>
+
+          <!-- Buttons -->
+          <div class="buttons-grid">
+            <button class="btn" onclick="clearAll()">Clear</button>
+            <button class="btn" onclick="setToday()">Today</button>
+            <button class="btn primary" onclick="calculate()">Calculate</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./Script/dateCalculator.js"></script>
+  </body>
+</html>

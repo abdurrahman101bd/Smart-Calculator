@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Loan Calculator</title>
+    <link rel="stylesheet" href="./CSS/loanCalculator.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-content">
+        <div class="header-left">
+          <button class="back-btn" onclick="window.history.back()">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+            </svg>
+          </button>
+        </div>
+        <div class="header-center">
+          <div class="header-title">
+            <span>Loan</span><span>Calculator</span>
+          </div>
+        </div>
+        <div class="header-right">
+          <div class="header-logo">💰</div>
+        </div>
+      </div>
+    </header>
+
+    <div class="main-content">
+      <div class="container">
+        <div class="calculator-wrap">
+          <!-- Input Section -->
+          <div class="input-section">
+            <div class="section-label">Loan Details</div>
+            <input
+              type="number"
+              class="input-field"
+              id="loanAmount"
+              placeholder="Loan Amount ($)"
+              value="200000"
+            />
+            <input
+              type="number"
+              class="input-field"
+              id="interestRate"
+              placeholder="Annual Interest Rate (%)"
+              value="5"
+              step="0.1"
+            />
+            <input
+              type="number"
+              class="input-field"
+              id="loanTerm"
+              placeholder="Loan Term (years)"
+              value="30"
+            />
+          </div>
+
+          <!-- Result Section -->
+          <div class="result-section">
+            <div class="section-label">Monthly Payment</div>
+            <div class="monthly-payment">
+              $<span id="monthlyPayment">1,074</span>
+              <div class="payment-label">per month</div>
+            </div>
+
+            <div class="details-grid">
+              <div class="detail-card">
+                <span class="detail-value"
+                  >$<span id="totalPayment">386,513</span></span
+                >
+                <span class="detail-label">Total Payment</span>
+              </div>
+              <div class="detail-card">
+                <span class="detail-value"
+                  >$<span id="totalInterest">186,513</span></span
+                >
+                <span class="detail-label">Total Interest</span>
+              </div>
+              <div class="detail-card">
+                <span class="detail-value"
+                  ><span id="paymentCount">360</span></span
+                >
+                <span class="detail-label">Number of Payments</span>
+              </div>
+              <div class="detail-card">
+                <span class="detail-value"
+                  >$<span id="principalAmount">200,000</span></span
+                >
+                <span class="detail-label">Principal</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Buttons -->
+          <div class="buttons-grid">
+            <button class="btn" onclick="clearAll()">Clear</button>
+            <button class="btn" onclick="resetDefaults()">Reset</button>
+            <button class="btn primary" onclick="calculateLoan()">
+              Calculate Loan
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./Script/loanCalculator.js"></script>
+  </body>
+</html>

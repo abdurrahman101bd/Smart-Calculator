@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Daily Water Intake Calculator</title>
+    <link rel="stylesheet" href="./CSs/waterIntakeCalculator.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-content">
+        <div class="header-left">
+          <button class="back-btn" onclick="window.history.back()">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+            </svg>
+          </button>
+        </div>
+        <div class="header-center">
+          <div class="header-title">
+            <span>Water Intake</span>
+            <span>Calculator</span>
+          </div>
+        </div>
+        <div class="header-right">
+          <div class="header-logo">💧</div>
+        </div>
+      </div>
+    </header>
+
+    <div class="main-content">
+      <div class="container">
+        <div class="calculator-wrap">
+          <div class="input-section">
+            <div class="section-label">Your Weight</div>
+            <div class="input-row">
+              <input
+                type="number"
+                class="input-field"
+                id="weight"
+                placeholder="70"
+                value="70"
+                step="0.1"
+              />
+              <span class="unit-label">kg</span>
+            </div>
+
+            <div class="section-label" style="margin-top: 15px">
+              Activity Level
+            </div>
+            <div class="radio-group">
+              <button
+                class="radio-btn active"
+                onclick="setActivity('sedentary')"
+              >
+                Sedentary
+              </button>
+              <button class="radio-btn" onclick="setActivity('light')">
+                Light
+              </button>
+              <button class="radio-btn" onclick="setActivity('moderate')">
+                Moderate
+              </button>
+              <button class="radio-btn" onclick="setActivity('intense')">
+                Intense
+              </button>
+            </div>
+
+            <div class="section-label" style="margin-top: 15px">Climate</div>
+            <div class="radio-group">
+              <button class="radio-btn active" onclick="setClimate('normal')">
+                Normal
+              </button>
+              <button class="radio-btn" onclick="setClimate('hot')">
+                Hot/Humid
+              </button>
+            </div>
+          </div>
+
+          <div class="result-section">
+            <div class="section-label">Daily Water Intake</div>
+            <div class="result-display" id="waterIntake">2.3 L</div>
+          </div>
+
+          <div class="result-section" style="margin-bottom: 20px">
+            <div class="section-label">Conversions</div>
+            <div class="result-row">
+              <span class="result-label">Milliliters:</span>
+              <span class="result-value" id="mlResult">2300 ml</span>
+            </div>
+            <div class="result-row">
+              <span class="result-label">Cups (8oz):</span>
+              <span class="result-value" id="cupsResult">9.7 cups</span>
+            </div>
+            <div class="result-row">
+              <span class="result-label">Glasses (250ml):</span>
+              <span class="result-value" id="glassesResult">9.2 glasses</span>
+            </div>
+          </div>
+
+          <div class="buttons-grid">
+            <button class="btn" onclick="clearAll()">Clear</button>
+            <button class="btn" onclick="resetDefaults()">Reset</button>
+            <button class="btn primary" onclick="calculate()">Calculate</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./Script/waterIntakeCalculator.js"></script>
+  </body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BMI Calculator</title>
+    <link rel="stylesheet" href="./CSS/BMICalculator.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-content">
+        <div class="header-left">
+          <button class="back-btn" onclick="window.history.back()">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+            </svg>
+          </button>
+        </div>
+        <div class="header-center">
+          <div class="header-title">
+            <span>BMI</span>
+            <span>Calculator</span>
+          </div>
+        </div>
+        <div class="header-right">
+          <div class="header-logo">⚖️</div>
+        </div>
+      </div>
+    </header>
+
+    <div class="main-content">
+      <div class="container">
+        <div class="calculator-wrap">
+          <!-- Input Section -->
+          <div class="input-section">
+            <div class="section-label">Your Information</div>
+            <!-- Height Input -->
+            <div class="input-group">
+              <input
+                type="number"
+                class="input-field"
+                id="height"
+                placeholder="Height"
+                value="170"
+              />
+              <select class="unit-select" id="heightUnit">
+                <option value="cm" selected>cm</option>
+                <option value="m">meters</option>
+                <option value="ft">feet</option>
+                <option value="in">inches</option>
+              </select>
+            </div>
+
+            <!-- Weight Input -->
+            <div class="input-group">
+              <input
+                type="number"
+                class="input-field"
+                id="weight"
+                placeholder="Weight"
+                value="70"
+              />
+              <select class="unit-select" id="weightUnit">
+                <option value="kg" selected>kg</option>
+                <option value="lbs">lbs</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Result Section -->
+          <div class="result-section">
+            <div class="section-label">Your BMI</div>
+            <div class="bmi-display" id="bmiValue">22.5</div>
+            <div class="bmi-category normal" id="bmiCategory">
+              Normal Weight
+            </div>
+            <div class="bmi-range">
+              Underweight: &lt; 18.5 | Normal: 18.5-24.9<br />
+              Overweight: 25-29.9 | Obese: ≥ 30
+            </div>
+          </div>
+
+          <!-- Buttons -->
+          <div class="buttons-grid">
+            <button class="btn" onclick="clearAll()">Clear</button>
+            <button class="btn" onclick="toggleUnit()">Toggle Unit</button>
+            <button class="btn primary" onclick="calculateBMI()">
+              Calculate BMI
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./Script/BMICalculator.js"></script>
+  </body>
+</html>

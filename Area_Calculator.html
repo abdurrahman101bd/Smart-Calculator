@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Area Calculator</title>
+    <link rel="stylesheet" href="./CSS/areaCalculator.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-content">
+        <div class="header-left">
+          <button class="back-btn" onclick="window.history.back()">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+            </svg>
+          </button>
+        </div>
+        <div class="header-center">
+          <div class="header-title">
+            <span>Area</span><span>Calculator</span>
+          </div>
+        </div>
+        <div class="header-right">
+          <div class="header-logo">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path
+                d="M3 5v4h2V5h4V3H5c-1.1 0-2 .9-2 2zm2 10H3v4c0 1.1.9 2 2 2h4v-2H5v-4zm14 4h-4v2h4c1.1 0 2-.9 2-2v-4h-2v4zm0-16h-4v2h4v4h2V5c0-1.1-.9-2-2-2z"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="main-content">
+      <div class="container">
+        <div class="calculator-wrap">
+          <div class="shape-selector">
+            <div class="section-label">Select Shape</div>
+            <div class="shape-grid">
+              <button class="shape-btn active" onclick="selectShape('square')">
+                Square
+              </button>
+              <button class="shape-btn" onclick="selectShape('rectangle')">
+                Rectangle
+              </button>
+              <button class="shape-btn" onclick="selectShape('circle')">
+                Circle
+              </button>
+              <button class="shape-btn" onclick="selectShape('triangle')">
+                Triangle
+              </button>
+              <button class="shape-btn" onclick="selectShape('trapezoid')">
+                Trapezoid
+              </button>
+              <button class="shape-btn" onclick="selectShape('ellipse')">
+                Ellipse
+              </button>
+            </div>
+          </div>
+
+          <div class="input-section" id="inputSection">
+            <div class="section-label">Dimensions</div>
+            <input
+              type="number"
+              class="input-field"
+              id="input1"
+              placeholder="Side length"
+              value="10"
+              step="0.1"
+            />
+          </div>
+
+          <div class="result-section">
+            <div class="section-label">Area</div>
+            <div class="result-display">
+              <span id="areaValue">100.00</span>
+              <span class="result-unit">square units</span>
+            </div>
+          </div>
+
+          <div class="buttons-grid">
+            <button class="btn" onclick="clearAll()">Clear</button>
+            <button class="btn" onclick="resetShape()">Reset</button>
+            <button class="btn primary" onclick="calculateArea()">
+              Calculate Area
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./Script/areaCalculator.js"></script>
+  </body>
+</html>

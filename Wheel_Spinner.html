@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wheel Spinner</title>
+    <link rel="stylesheet" href="./CSS/wheelSpinner.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-content">
+        <div class="header-left">
+          <button class="back-btn" onclick="window.history.back()">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+            </svg>
+          </button>
+        </div>
+        <div class="header-center">
+          <div class="header-title">
+            <span>Wheel</span>
+            <span>Spinner</span>
+          </div>
+        </div>
+        <div class="header-right">
+          <div class="header-logo">🎡</div>
+        </div>
+      </div>
+    </header>
+
+    <div class="main-content">
+      <div class="container">
+        <div class="calculator-wrap">
+          <div class="wheel-section">
+            <div class="wheel-container">
+              <div class="pointer"></div>
+              <canvas id="wheelCanvas" width="280" height="280"></canvas>
+            </div>
+            <div class="winner-text" id="winnerText">Spin the wheel!</div>
+          </div>
+
+          <div class="input-section">
+            <div class="section-label">Options (one per line)</div>
+            <textarea
+              class="input-field"
+              id="optionsInput"
+              placeholder="Pizza&#10;Burger&#10;Sushi&#10;Pasta&#10;Tacos"
+            >
+Pizza
+Burger
+Sushi
+Pasta
+Tacos
+</textarea
+            >
+          </div>
+
+          <div class="buttons-grid">
+            <button class="btn" onclick="clearAll()">Clear</button>
+            <button class="btn" onclick="resetDefaults()">Reset</button>
+            <button class="btn primary" onclick="spinWheel()">
+              Spin Wheel
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./Script/wheelSpinner.js"></script>
+  </body>
+</html>

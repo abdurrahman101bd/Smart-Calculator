@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dice Roller</title>
+    <link rel="stylesheet" href="./CSS/diceRoller.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-content">
+        <div class="header-left">
+          <button class="back-btn" onclick="window.history.back()">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+            </svg>
+          </button>
+        </div>
+        <div class="header-center">
+          <div class="header-title"><span>Dice</span><span>Roller</span></div>
+        </div>
+        <div class="header-right"><div class="header-logo">🎲</div></div>
+      </div>
+    </header>
+
+    <div class="main-content">
+      <div class="container">
+        <div class="calculator-wrap">
+          <div class="input-section">
+            <div class="section-label">Number of Dice</div>
+            <input
+              type="number"
+              id="diceCount"
+              class="input-field"
+              min="1"
+              max="10"
+              value="2"
+            />
+          </div>
+
+          <div class="result-section">
+            <div class="result-display" id="diceResult">⚀ ⚁</div>
+          </div>
+
+          <div class="buttons-grid">
+            <button class="clear-btn" onclick="clearDice()">Clear</button>
+            <button class="roll-btn" onclick="rollDice()">Roll Dice</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./Script/diceRoller.js"></script>
+  </body>
+</html>

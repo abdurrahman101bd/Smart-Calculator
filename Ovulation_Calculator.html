@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ovulation Calculator</title>
+    <link rel="stylesheet" href="./CSS/ovulationCalculator.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-content">
+        <div class="header-left">
+          <button class="back-btn" onclick="window.history.back()">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+            </svg>
+          </button>
+        </div>
+        <div class="header-center">
+          <div class="header-title">
+            <span>Ovulation</span>
+            <span>Calculator</span>
+          </div>
+        </div>
+        <div class="header-right">
+          <div class="header-logo">🌸</div>
+        </div>
+      </div>
+    </header>
+
+    <div class="main-content">
+      <div class="container">
+        <div class="calculator-wrap">
+          <div class="input-section">
+            <div class="section-label">First Day of Last Period</div>
+            <div class="date-row">
+              <select id="year"></select>
+              <select id="month"></select>
+              <select id="day"></select>
+            </div>
+
+            <div class="section-label">Average Cycle Length (days)</div>
+            <input
+              type="number"
+              class="input-field"
+              id="cycleLength"
+              placeholder="28"
+              value="28"
+              min="21"
+              max="35"
+              step="1"
+            />
+          </div>
+
+          <div class="result-section">
+            <div class="section-label">Estimated Ovulation Day</div>
+            <div class="result-display" id="ovulationDate">Select Date</div>
+          </div>
+
+          <div class="result-section" style="margin-bottom: 20px">
+            <div class="section-label">Fertility Window</div>
+            <div class="result-row">
+              <span class="result-label">Window Start:</span>
+              <span class="result-value" id="windowStart">-</span>
+            </div>
+            <div class="result-row">
+              <span class="result-label">Peak Fertility:</span>
+              <span class="result-value" id="peakFertility">-</span>
+            </div>
+            <div class="result-row">
+              <span class="result-label">Window End:</span>
+              <span class="result-value" id="windowEnd">-</span>
+            </div>
+            <div class="result-row">
+              <span class="result-label">Next Period:</span>
+              <span class="result-value" id="nextPeriod">-</span>
+            </div>
+          </div>
+
+          <div class="buttons-grid">
+            <button class="btn" onclick="clearAll()">Clear</button>
+            <button class="btn" onclick="setToday()">Today</button>
+            <button class="btn primary" onclick="calculate()">Calculate</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./Script/ovulationCalculator.js"></script>
+  </body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tip Calculator</title>
+    <link rel="stylesheet" href="./CSS/tipCalculator.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-content">
+        <div class="header-left">
+          <button class="back-btn" onclick="window.history.back()">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+            </svg>
+          </button>
+        </div>
+        <div class="header-center">
+          <div class="header-title">
+            <span>Tip</span>
+            <span>Calculator</span>
+          </div>
+        </div>
+        <div class="header-right">
+          <div class="header-logo">🍽️</div>
+        </div>
+      </div>
+    </header>
+
+    <div class="main-content">
+      <div class="container">
+        <div class="calculator-wrap">
+          <div class="input-section">
+            <div class="section-label">Bill Details</div>
+            <input
+              type="number"
+              class="input-field"
+              id="billAmount"
+              placeholder="Bill Amount ($)"
+              value="100"
+              step="0.01"
+            />
+
+            <div class="section-label" style="margin-top: 15px">
+              Tip Percentage
+            </div>
+            <div class="tip-presets">
+              <button class="tip-btn" onclick="selectTip(10)">10%</button>
+              <button class="tip-btn active" onclick="selectTip(15)">
+                15%
+              </button>
+              <button class="tip-btn" onclick="selectTip(18)">18%</button>
+              <button class="tip-btn" onclick="selectTip(20)">20%</button>
+            </div>
+
+            <input
+              type="number"
+              class="input-field"
+              id="tipPercent"
+              placeholder="Custom Tip (%)"
+              value="15"
+              step="0.1"
+            />
+            <input
+              type="number"
+              class="input-field"
+              id="splitCount"
+              placeholder="Split Between (People)"
+              value="1"
+              min="1"
+            />
+          </div>
+
+          <div class="result-section">
+            <div class="section-label">Total Amount</div>
+            <div class="total-display">
+              $<span id="totalAmount">115.00</span>
+              <div class="result-label">Total with tip</div>
+            </div>
+
+            <div class="breakdown-grid">
+              <div class="breakdown-item">
+                <span class="breakdown-value"
+                  >$<span id="tipAmount">15.00</span></span
+                >
+                <span class="breakdown-label">Tip Amount</span>
+              </div>
+              <div class="breakdown-item">
+                <span class="breakdown-value"
+                  >$<span id="perPerson">115.00</span></span
+                >
+                <span class="breakdown-label">Per Person</span>
+              </div>
+              <div class="breakdown-item">
+                <span class="breakdown-value"
+                  >$<span id="billPerPerson">100.00</span></span
+                >
+                <span class="breakdown-label">Bill Per Person</span>
+              </div>
+              <div class="breakdown-item">
+                <span class="breakdown-value"
+                  >$<span id="tipPerPerson">15.00</span></span
+                >
+                <span class="breakdown-label">Tip Per Person</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="buttons-grid">
+            <button class="btn" onclick="clearAll()">Clear</button>
+            <button class="btn" onclick="resetDefaults()">Reset</button>
+            <button class="btn primary" onclick="calculateTip()">
+              Calculate Tip
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./Script/tipCalculator.js"></script>
+  </body>
+</html>

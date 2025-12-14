@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hex/Binary Converter</title>
+    <link rel="stylesheet" href="./CSS/hexBinaryConverter.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-content">
+        <div class="header-left">
+          <button class="back-btn" onclick="window.history.back()">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+            </svg>
+          </button>
+        </div>
+        <div class="header-center">
+          <div class="header-title">
+            <span>Hex/Binary</span>
+            <span>Converter</span>
+          </div>
+        </div>
+        <div class="header-right">
+          <div class="header-logo">🔄</div>
+        </div>
+      </div>
+    </header>
+
+    <div class="main-content">
+      <div class="container">
+        <div class="calculator-wrap">
+          <!-- Mode Selection -->
+          <div class="mode-tabs">
+            <button class="mode-tab active" onclick="switchMode('dec')">
+              From Decimal
+            </button>
+            <button class="mode-tab" onclick="switchMode('convert')">
+              Convert All
+            </button>
+          </div>
+
+          <!-- Decimal Mode -->
+          <div id="decMode">
+            <div class="input-section">
+              <div class="section-label">Enter Decimal Number</div>
+              <input
+                type="number"
+                class="input-field"
+                id="decInput"
+                placeholder="Enter decimal"
+                value="255"
+              />
+            </div>
+
+            <div class="result-section">
+              <div class="section-label">Conversions</div>
+              <div class="result-row">
+                <span class="result-label">Binary:</span>
+                <span class="result-value" id="decBin">11111111</span>
+              </div>
+              <div class="result-row">
+                <span class="result-label">Hexadecimal:</span>
+                <span class="result-value" id="decHex">FF</span>
+              </div>
+              <div class="result-row">
+                <span class="result-label">Octal:</span>
+                <span class="result-value" id="decOct">377</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Convert Mode -->
+          <div id="convertMode" style="display: none">
+            <div class="input-section">
+              <div class="section-label">Binary</div>
+              <input
+                type="text"
+                class="input-field"
+                id="binInput"
+                placeholder="e.g., 11111111"
+                value="11111111"
+              />
+
+              <div class="section-label" style="margin-top: 15px">
+                Hexadecimal
+              </div>
+              <input
+                type="text"
+                class="input-field"
+                id="hexInput"
+                placeholder="e.g., FF"
+                value="FF"
+              />
+
+              <div class="section-label" style="margin-top: 15px">Octal</div>
+              <input
+                type="text"
+                class="input-field"
+                id="octInput"
+                placeholder="e.g., 377"
+                value="377"
+              />
+            </div>
+
+            <div class="result-section">
+              <div class="section-label">Decimal Result</div>
+              <div class="result-row">
+                <span class="result-label">From Binary:</span>
+                <span class="result-value" id="binToDec">255</span>
+              </div>
+              <div class="result-row">
+                <span class="result-label">From Hex:</span>
+                <span class="result-value" id="hexToDec">255</span>
+              </div>
+              <div class="result-row">
+                <span class="result-label">From Octal:</span>
+                <span class="result-value" id="octToDec">255</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Buttons -->
+          <div class="buttons-grid">
+            <button class="btn" onclick="clearAll()">Clear</button>
+            <button class="btn" onclick="resetDefaults()">Reset</button>
+            <button class="btn primary" onclick="calculate()">Convert</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./Script/hexBinaryConverter.js"></script>
+  </body>
+</html>

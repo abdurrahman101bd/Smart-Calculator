@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random Number Generator</title>
+    <link rel="stylesheet" href="./CSS/randomNumberGenerator.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-content">
+        <div class="header-left">
+          <button class="back-btn" onclick="window.history.back()">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+            </svg>
+          </button>
+        </div>
+        <div class="header-center">
+          <div class="header-title">
+            <span>Random Num</span><span> Generator</span>
+          </div>
+        </div>
+        <div class="header-right"><div class="header-logo">🎲</div></div>
+      </div>
+    </header>
+
+    <div class="main-content">
+      <div class="container">
+        <div class="calculator-wrap">
+          <div class="input-section">
+            <div class="section-label">Set Minimum and Maximum Values</div>
+            <input
+              type="number"
+              id="minInput"
+              class="input-field"
+              placeholder="Min"
+              value="1"
+            />
+            <input
+              type="number"
+              id="maxInput"
+              class="input-field"
+              placeholder="Max"
+              value="100"
+            />
+          </div>
+
+          <div class="result-section">
+            <div class="result-display" id="outputDisplay">Random Number</div>
+          </div>
+
+          <div class="buttons-grid">
+            <button class="copy-btn" onclick="copyResult()">Copy</button>
+            <button class="clear-btn" onclick="clearAll()">Clear</button>
+          </div>
+
+          <div class="buttons-grid">
+            <button class="btn primary" onclick="generateRandom()">
+              Generate
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./Script/randomNumberGenerator.js"></script>
+  </body>
+</html>

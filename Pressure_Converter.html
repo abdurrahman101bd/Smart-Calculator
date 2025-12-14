@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pressure Converter</title>
+    <link rel="stylesheet" href="./CSS/pressureConverter.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-content">
+        <div class="header-left">
+          <button class="back-btn" onclick="window.history.back()">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+            </svg>
+          </button>
+        </div>
+        <div class="header-center">
+          <div class="header-title">
+            <span>Pressure</span>
+            <span>Converter</span>
+          </div>
+        </div>
+        <div class="header-right">
+          <div class="header-logo">⚡</div>
+        </div>
+      </div>
+    </header>
+
+    <div class="main-content">
+      <div class="container">
+        <div class="calculator-wrap">
+          <div class="input-section">
+            <div class="section-label">Enter Value</div>
+            <div class="input-row">
+              <input
+                type="number"
+                class="input-field"
+                id="inputValue"
+                placeholder="100"
+                value="100"
+                step="0.01"
+              />
+              <select class="unit-label" id="inputUnit">
+                <option value="pascal">Pa</option>
+                <option value="bar">bar</option>
+                <option value="atm">atm</option>
+                <option value="psi">psi</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="result-section">
+            <div class="section-label">Results</div>
+            <div class="result-row">
+              <span class="result-label">Pascal (Pa):</span>
+              <span class="result-value" id="pascalResult">100</span>
+            </div>
+            <div class="result-row">
+              <span class="result-label">Bar:</span>
+              <span class="result-value" id="barResult">0.001</span>
+            </div>
+            <div class="result-row">
+              <span class="result-label">Atmosphere (atm):</span>
+              <span class="result-value" id="atmResult">0.000987</span>
+            </div>
+            <div class="result-row">
+              <span class="result-label">PSI:</span>
+              <span class="result-value" id="psiResult">0.0145</span>
+            </div>
+          </div>
+
+          <div class="buttons-grid">
+            <button class="btn" onclick="clearAll()">Clear</button>
+            <button class="btn" onclick="resetDefaults()">Reset</button>
+            <button class="btn primary" onclick="calculate()">Convert</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./Script/pressureConverter.js"></script>
+  </body>
+</html>

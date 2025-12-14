@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calorie & Nutrition Calculator</title>
+    <link rel="stylesheet" href="./CSS/calorieNutritionCalculator.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-content">
+        <div class="header-left">
+          <button class="back-btn" onclick="window.history.back()">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+            </svg>
+          </button>
+        </div>
+        <div class="header-center">
+          <div class="header-title">
+            <span>Calorie & Nutrition</span>
+            <span>Calculator</span>
+          </div>
+        </div>
+        <div class="header-right">
+          <div class="header-logo">🍎</div>
+        </div>
+      </div>
+    </header>
+
+    <div class="main-content">
+      <div class="container">
+        <div class="calculator-wrap">
+          <!-- Mode Selection -->
+          <div class="mode-tabs">
+            <button class="mode-tab active" onclick="switchMode('calorie')">
+              Calorie
+            </button>
+            <button class="mode-tab" onclick="switchMode('bmr')">BMR</button>
+            <button class="mode-tab" onclick="switchMode('tdee')">TDEE</button>
+            <button class="mode-tab" onclick="switchMode('protein')">
+              Protein
+            </button>
+            <button class="mode-tab" onclick="switchMode('macro')">
+              Macro
+            </button>
+            <button class="mode-tab" onclick="switchMode('burned')">
+              Burned
+            </button>
+          </div>
+
+          <!-- Shared Input (Used by multiple modes) -->
+          <div class="input-section" id="sharedInputs">
+            <div class="section-label">Your Information</div>
+            <select class="select-field" id="gender">
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+            <input
+              type="number"
+              class="input-field"
+              id="age"
+              placeholder="Age (years)"
+              value="30"
+            />
+            <input
+              type="number"
+              class="input-field"
+              id="weight"
+              placeholder="Weight (kg)"
+              value="70"
+            />
+            <input
+              type="number"
+              class="input-field"
+              id="height"
+              placeholder="Height (cm)"
+              value="175"
+            />
+            <select class="select-field" id="activity" style="display: none">
+              <option value="1.2">Sedentary (little/no exercise)</option>
+              <option value="1.375">Light (1-3 days/week)</option>
+              <option value="1.55" selected>Moderate (3-5 days/week)</option>
+              <option value="1.725">Active (6-7 days/week)</option>
+              <option value="1.9">Very Active (2x/day)</option>
+            </select>
+            <select class="select-field" id="goal" style="display: none">
+              <option value="-500">Weight Loss (-500 cal)</option>
+              <option value="0" selected>Maintain Weight</option>
+              <option value="500">Weight Gain (+500 cal)</option>
+            </select>
+          </div>
+
+          <!-- Exercise Input (For Calories Burned) -->
+          <div class="input-section" id="exerciseInput" style="display: none">
+            <div class="section-label">Exercise Details</div>
+            <select class="select-field" id="exercise">
+              <option value="3.5">Walking (slow)</option>
+              <option value="5">Walking (fast)</option>
+              <option value="7" selected>Running (6 mph)</option>
+              <option value="8">Running (8 mph)</option>
+              <option value="6">Cycling (moderate)</option>
+              <option value="8">Swimming</option>
+              <option value="4">Yoga</option>
+              <option value="6">Weight Training</option>
+            </select>
+            <input
+              type="number"
+              class="input-field"
+              id="duration"
+              placeholder="Duration (minutes)"
+              value="30"
+            />
+          </div>
+
+          <!-- Result Section -->
+          <div class="result-section">
+            <div class="section-label" id="resultLabel">Daily Calories</div>
+            <div class="result-display" id="mainResult">2,100 cal</div>
+
+            <div class="breakdown-grid" id="breakdown">
+              <div class="breakdown-item">
+                <span class="breakdown-value" id="break1">1,680</span>
+                <span class="breakdown-label" id="label1">BMR</span>
+              </div>
+              <div class="breakdown-item">
+                <span class="breakdown-value" id="break2">420</span>
+                <span class="breakdown-label" id="label2">Activity</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Buttons -->
+          <div class="buttons-grid">
+            <button class="btn" onclick="clearAll()">Clear</button>
+            <button class="btn" onclick="resetDefaults()">Reset</button>
+            <button class="btn primary" onclick="calculate()">Calculate</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./Script/calorieNutritionCalculator.js"></script>
+  </body>
+</html>

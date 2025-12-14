@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coin Toss Generator</title>
+    <link rel="stylesheet" href="./CSS/coinTossGenerator.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-content">
+        <div class="header-left">
+          <button class="back-btn" onclick="window.history.back()">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+            </svg>
+          </button>
+        </div>
+        <div class="header-center">
+          <div class="header-title">
+            <span>Coin Toss</span>
+            <span>Generator</span>
+          </div>
+        </div>
+        <div class="header-right">
+          <div class="header-logo">🪙</div>
+        </div>
+      </div>
+    </header>
+
+    <div class="main-content">
+      <div class="container">
+        <div class="calculator-wrap">
+          <div class="coin-section">
+            <div class="coin" id="coin">?</div>
+            <div class="result-text" id="resultText">Tap to flip!</div>
+            <div class="result-emoji" id="resultEmoji"></div>
+          </div>
+
+          <div class="stats-section">
+            <div class="section-label">Statistics</div>
+            <div class="stats-grid">
+              <div class="stat-box">
+                <div class="stat-value" id="headsCount">0</div>
+                <div class="stat-label">Heads</div>
+              </div>
+              <div class="stat-box">
+                <div class="stat-value" id="tailsCount">0</div>
+                <div class="stat-label">Tails</div>
+              </div>
+              <div class="stat-box">
+                <div class="stat-value" id="totalCount">0</div>
+                <div class="stat-label">Total</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="buttons-grid">
+            <button class="btn" onclick="resetStats()">Reset Stats</button>
+            <button class="btn" onclick="flipMultiple()">Flip 5x</button>
+            <button class="btn primary" onclick="flipCoin()">Flip Coin</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./Script/coinTossGenerator.js"></script>
+  </body>
+</html>

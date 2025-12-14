@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pregnancy & Period Calculator</title>
+    <link rel="stylesheet" href="./CSS/pregnancyPeriodCalculator.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-content">
+        <div class="header-left">
+          <button class="back-btn" onclick="history.back()">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+            </svg>
+          </button>
+        </div>
+        <div class="header-center">
+          <div class="header-title">
+            <span>Pregnancy</span>
+            <span>&</span>
+            <span>Period Calculator</span>
+          </div>
+        </div>
+        <div class="header-right">
+          <div class="header-logo">🤰</div>
+        </div>
+      </div>
+    </header>
+
+    <div class="main-content">
+      <div class="container">
+        <div class="calculator-wrap">
+          <div class="mode-tabs">
+            <button
+              class="mode-tab active"
+              onclick="switchMode('pregnancy',this)"
+            >
+              Pregnancy
+            </button>
+            <button class="mode-tab" onclick="switchMode('duedate',this)">
+              Due Date
+            </button>
+            <button class="mode-tab" onclick="switchMode('period',this)">
+              Period
+            </button>
+          </div>
+
+          <!-- Pregnancy -->
+          <div id="pregnancyMode">
+            <div class="input-section">
+              <div class="section-label">Last Menstrual Period (LMP)</div>
+              <div class="date-input date-row" data-date="lmp">
+                <select class="year"></select>
+                <select class="month"></select>
+                <select class="day"></select>
+              </div>
+            </div>
+
+            <div class="result-section">
+              <div class="section-label">Due Date</div>
+              <div class="result-display" id="pregResult">-</div>
+              <div class="info-grid" id="pregInfo"></div>
+            </div>
+          </div>
+
+          <!-- Due date -->
+          <div id="duedateMode" style="display: none">
+            <div class="input-section">
+              <div class="section-label">Due Date</div>
+              <div class="date-input date-row" data-date="dueDate">
+                <select class="year"></select>
+                <select class="month"></select>
+                <select class="day"></select>
+              </div>
+            </div>
+
+            <div class="result-section">
+              <div class="section-label">Last Menstrual Period</div>
+              <div class="result-display" id="dueResult">-</div>
+              <div class="info-grid" id="dueInfo"></div>
+            </div>
+          </div>
+
+          <!-- Period -->
+          <div id="periodMode" style="display: none">
+            <div class="input-section">
+              <div class="section-label">Period Information</div>
+
+              <div class="date-input date-row" data-date="lastPeriod">
+                <select class="year"></select>
+                <select class="month"></select>
+                <select class="day"></select>
+              </div>
+
+              <input
+                type="number"
+                class="input-field"
+                id="cycleLength"
+                placeholder="Cycle Length (days)"
+                value="28"
+              />
+              <input
+                type="number"
+                class="input-field"
+                id="periodLength"
+                placeholder="Period Duration (days)"
+                value="5"
+              />
+            </div>
+
+            <div class="result-section">
+              <div class="section-label">Next Period</div>
+              <div class="result-display" id="periodResult">-</div>
+              <div class="info-grid" id="periodInfo"></div>
+            </div>
+          </div>
+
+          <!-- Buttons -->
+          <div class="buttons-grid">
+            <button class="btn" onclick="clearAll()">Clear</button>
+            <button class="btn" onclick="setToday()">Today</button>
+            <button class="btn primary" onclick="calculate()">Calculate</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./Script/pregnancyPeriodCalculator.js"></script>
+  </body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grade Calculator</title>
+    <link rel="stylesheet" href="./CSS/gradeCalculator.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-content">
+        <div class="header-left">
+          <button class="back-btn" onclick="window.history.back()">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+            </svg>
+          </button>
+        </div>
+        <div class="header-center">
+          <div class="header-title">
+            <span>Grade</span>
+            <span>Calculator</span>
+          </div>
+        </div>
+        <div class="header-right">
+          <div class="header-logo">🎓</div>
+        </div>
+      </div>
+    </header>
+
+    <div class="main-content">
+      <div class="container">
+        <div class="calculator-wrap">
+          <div class="input-section">
+            <div class="section-label">Enter Your Grades</div>
+            <div id="gradesContainer">
+              <div class="grade-item">
+                <input
+                  type="text"
+                  class="grade-input"
+                  placeholder="Subject"
+                  value="Math"
+                />
+                <input
+                  type="number"
+                  class="grade-input"
+                  placeholder="Grade %"
+                  value="85"
+                  min="0"
+                  max="100"
+                />
+                <button class="delete-btn" onclick="deleteGrade(this)">
+                  ×
+                </button>
+              </div>
+              <div class="grade-item">
+                <input
+                  type="text"
+                  class="grade-input"
+                  placeholder="Subject"
+                  value="English"
+                />
+                <input
+                  type="number"
+                  class="grade-input"
+                  placeholder="Grade %"
+                  value="90"
+                  min="0"
+                  max="100"
+                />
+                <button class="delete-btn" onclick="deleteGrade(this)">
+                  ×
+                </button>
+              </div>
+              <div class="grade-item">
+                <input
+                  type="text"
+                  class="grade-input"
+                  placeholder="Subject"
+                  value="Science"
+                />
+                <input
+                  type="number"
+                  class="grade-input"
+                  placeholder="Grade %"
+                  value="88"
+                  min="0"
+                  max="100"
+                />
+                <button class="delete-btn" onclick="deleteGrade(this)">
+                  ×
+                </button>
+              </div>
+            </div>
+            <button class="add-btn" onclick="addGrade()">+ Add Subject</button>
+          </div>
+
+          <div class="result-section">
+            <div class="section-label">Your Results</div>
+            <div class="gpa-display">
+              <div class="gpa-item">
+                <span class="gpa-value" id="gpaValue">3.7</span>
+                <span class="gpa-label">GPA (4.0 Scale)</span>
+              </div>
+              <div class="gpa-item">
+                <span class="gpa-value" id="percentValue">87.7%</span>
+                <span class="gpa-label">Average</span>
+              </div>
+            </div>
+            <div class="grade-info">
+              Grade Scale: A (90-100) | B (80-89) | C (70-79) | D (60-69) | F
+              (&lt;60)
+            </div>
+          </div>
+
+          <div class="buttons-grid">
+            <button class="btn" onclick="clearAll()">Clear All</button>
+            <button class="btn" onclick="addGrade()">Add Subject</button>
+            <button class="btn primary" onclick="calculateGPA()">
+              Calculate GPA
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- JS -->
+    <script src="./Script/gradeCalculator.js"></script>
+  </body>
+</html>

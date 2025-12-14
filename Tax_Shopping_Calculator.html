@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tax & Shopping Calculator</title>
+    <link rel="stylesheet" href="./CSS/taxShoppingCalculator.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-content">
+        <div class="header-left">
+          <button class="back-btn" onclick="window.history.back()">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+            </svg>
+          </button>
+        </div>
+        <div class="header-center">
+          <div class="header-title">
+            <span>Tax & Shopping</span>
+            <span>Calculator</span>
+          </div>
+        </div>
+        <div class="header-right">
+          <div class="header-logo">🛒</div>
+        </div>
+      </div>
+    </header>
+
+    <div class="main-content">
+      <div class="container">
+        <div class="calculator-wrap">
+          <!-- Mode Selection -->
+          <div class="mode-tabs">
+            <button class="mode-tab active" onclick="switchMode('income')">
+              Income Tax
+            </button>
+            <button class="mode-tab" onclick="switchMode('sales')">
+              Sales Tax
+            </button>
+            <button class="mode-tab" onclick="switchMode('discount')">
+              Discount
+            </button>
+          </div>
+
+          <!-- Income Tax Mode -->
+          <div id="incomeMode">
+            <div class="input-section">
+              <div class="section-label">Income Tax Calculator (Simple)</div>
+              <input
+                type="number"
+                class="input-field"
+                id="inc1"
+                placeholder="Gross Income ($)"
+                value="75000"
+              />
+              <input
+                type="number"
+                class="input-field"
+                id="inc2"
+                placeholder="Tax Rate (%)"
+                value="22"
+                step="0.1"
+              />
+              <input
+                type="number"
+                class="input-field"
+                id="inc3"
+                placeholder="Deductions ($)"
+                value="12000"
+              />
+            </div>
+
+            <div class="result-section">
+              <div class="section-label">Tax Amount</div>
+              <div class="result-display">
+                $<span id="incResult">13,860</span>
+              </div>
+
+              <div class="breakdown-grid">
+                <div class="breakdown-item">
+                  <span class="breakdown-value"
+                    >$<span id="incTaxable">63,000</span></span
+                  >
+                  <span class="breakdown-label">Taxable Income</span>
+                </div>
+                <div class="breakdown-item">
+                  <span class="breakdown-value"
+                    >$<span id="incNet">61,140</span></span
+                  >
+                  <span class="breakdown-label">Net Income</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sales Tax Mode -->
+          <div id="salesMode" style="display: none">
+            <div class="input-section">
+              <div class="section-label">Sales Tax / VAT Calculator</div>
+              <input
+                type="number"
+                class="input-field"
+                id="sale1"
+                placeholder="Price Before Tax ($)"
+                value="100"
+                step="0.01"
+              />
+              <input
+                type="number"
+                class="input-field"
+                id="sale2"
+                placeholder="Tax Rate (%)"
+                value="8.5"
+                step="0.1"
+              />
+            </div>
+
+            <div class="result-section">
+              <div class="section-label">Total Price</div>
+              <div class="result-display">
+                $<span id="saleResult">108.50</span>
+              </div>
+
+              <div class="breakdown-grid">
+                <div class="breakdown-item">
+                  <span class="breakdown-value"
+                    >$<span id="saleTax">8.50</span></span
+                  >
+                  <span class="breakdown-label">Tax Amount</span>
+                </div>
+                <div class="breakdown-item">
+                  <span class="breakdown-value"
+                    >$<span id="saleBase">100.00</span></span
+                  >
+                  <span class="breakdown-label">Base Price</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Discount Mode -->
+          <div id="discountMode" style="display: none">
+            <div class="input-section">
+              <div class="section-label">Discount / Percent Off Calculator</div>
+              <input
+                type="number"
+                class="input-field"
+                id="disc1"
+                placeholder="Original Price ($)"
+                value="200"
+                step="0.01"
+              />
+              <input
+                type="number"
+                class="input-field"
+                id="disc2"
+                placeholder="Discount (%)"
+                value="25"
+                step="0.1"
+              />
+            </div>
+
+            <div class="result-section">
+              <div class="section-label">Final Price</div>
+              <div class="result-display">
+                $<span id="discResult">150.00</span>
+              </div>
+
+              <div class="breakdown-grid">
+                <div class="breakdown-item">
+                  <span class="breakdown-value"
+                    >$<span id="discSaved">50.00</span></span
+                  >
+                  <span class="breakdown-label">You Save</span>
+                </div>
+                <div class="breakdown-item">
+                  <span class="breakdown-value"
+                    ><span id="discPercent">25%</span></span
+                  >
+                  <span class="breakdown-label">Discount %</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Buttons -->
+          <div class="buttons-grid">
+            <button class="btn" onclick="clearAll()">Clear</button>
+            <button class="btn" onclick="resetDefaults()">Reset</button>
+            <button class="btn primary" onclick="calculate()">Calculate</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./Script/taxShoppingCalculator.js"></script>
+  </body>
+</html>

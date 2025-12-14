@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Body Fat Calculator</title>
+    <link rel="stylesheet" href="./CSS/bodyFatPercentageCalculator.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-content">
+        <div class="header-left">
+          <button class="back-btn" onclick="window.history.back()">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+            </svg>
+          </button>
+        </div>
+        <div class="header-center">
+          <div class="header-title">
+            <span>Body Fat</span>
+            <span>Calculator</span>
+          </div>
+        </div>
+        <div class="header-right">
+          <div class="header-logo">💪</div>
+        </div>
+      </div>
+    </header>
+
+    <div class="main-content">
+      <div class="container">
+        <div class="calculator-wrap">
+          <div class="input-section">
+            <div class="section-label">Gender</div>
+            <div class="radio-group">
+              <button class="radio-btn active" onclick="setGender('male')">
+                Male
+              </button>
+              <button class="radio-btn" onclick="setGender('female')">
+                Female
+              </button>
+            </div>
+
+            <div class="section-label" style="margin-top: 15px">
+              Waist (at navel)
+            </div>
+            <div class="input-row">
+              <input
+                type="number"
+                class="input-field"
+                id="waist"
+                placeholder="85"
+                value="85"
+                step="0.1"
+              />
+              <span class="unit-label">cm</span>
+            </div>
+
+            <div class="section-label" style="margin-top: 15px">Neck</div>
+            <div class="input-row">
+              <input
+                type="number"
+                class="input-field"
+                id="neck"
+                placeholder="38"
+                value="38"
+                step="0.1"
+              />
+              <span class="unit-label">cm</span>
+            </div>
+
+            <div class="section-label" style="margin-top: 15px">Height</div>
+            <div class="input-row">
+              <input
+                type="number"
+                class="input-field"
+                id="height"
+                placeholder="170"
+                value="170"
+                step="0.1"
+              />
+              <span class="unit-label">cm</span>
+            </div>
+
+            <div id="hipSection">
+              <div class="section-label" style="margin-top: 15px">
+                Hip (Female only)
+              </div>
+              <div class="input-row">
+                <input
+                  type="number"
+                  class="input-field"
+                  id="hip"
+                  placeholder="95"
+                  value="95"
+                  step="0.1"
+                />
+                <span class="unit-label">cm</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="result-section">
+            <div class="section-label">Body Fat Percentage</div>
+            <div class="result-display" id="bodyFatPercent">18.5%</div>
+          </div>
+
+          <div class="result-section" style="margin-bottom: 20px">
+            <div class="section-label">Category</div>
+            <div class="result-row">
+              <span class="result-label">Classification:</span>
+              <span class="result-value" id="category">Fitness</span>
+            </div>
+            <div class="result-row">
+              <span class="result-label">Fat Mass:</span>
+              <span class="result-value" id="fatMass">-</span>
+            </div>
+            <div class="result-row">
+              <span class="result-label">Lean Mass:</span>
+              <span class="result-value" id="leanMass">-</span>
+            </div>
+          </div>
+
+          <div class="buttons-grid">
+            <button class="btn" onclick="clearAll()">Clear</button>
+            <button class="btn" onclick="resetDefaults()">Reset</button>
+            <button class="btn primary" onclick="calculate()">Calculate</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./Script/bodyFatPercentageCalculator.js"></script>
+  </body>
+</html>

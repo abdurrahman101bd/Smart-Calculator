@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Advanced Math Calculator</title>
+    <link rel="stylesheet" href="./CSS/advancedMathCalculators.css" />
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="header-content">
+        <div class="header-left">
+          <button class="back-btn" onclick="window.history.back()">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+            </svg>
+          </button>
+        </div>
+        <div class="header-center">
+          <div class="header-title">
+            <span>Advanced</span>
+            <span>Math</span>
+            <span>Calculator</span>
+          </div>
+        </div>
+        <div class="header-right">
+          <div class="header-logo">🧮</div>
+        </div>
+      </div>
+    </header>
+
+    <div class="main-content">
+      <div class="container">
+        <div class="calculator-wrap">
+          <!-- Mode Selection -->
+          <div class="mode-tabs">
+            <button class="mode-tab active" onclick="switchMode('prime')">
+              Prime Factor
+            </button>
+            <button class="mode-tab" onclick="switchMode('lcmgcf')">
+              LCM & GCF
+            </button>
+            <button class="mode-tab" onclick="switchMode('quadratic')">
+              Quadratic
+            </button>
+            <button class="mode-tab" onclick="switchMode('log')">
+              Logarithm
+            </button>
+          </div>
+
+          <!-- Prime Factorization Mode -->
+          <div id="primeMode">
+            <div class="input-section">
+              <div class="section-label">Prime Factorization</div>
+              <input
+                type="number"
+                class="input-field"
+                id="primeNumber"
+                placeholder="Enter number"
+                value="60"
+                min="2"
+              />
+            </div>
+
+            <div class="result-section">
+              <div class="section-label">Prime Factors</div>
+              <div class="result-display factors-list" id="primeResult">
+                <span class="factor-badge">2²</span>
+                <span class="factor-badge">3</span>
+                <span class="factor-badge">5</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- LCM & GCF Mode -->
+          <div id="lcmgcfMode" style="display: none">
+            <div class="input-section">
+              <div class="section-label">Enter Two Numbers</div>
+              <input
+                type="number"
+                class="input-field"
+                id="lcmNum1"
+                placeholder="First number"
+                value="12"
+                min="1"
+              />
+              <input
+                type="number"
+                class="input-field"
+                id="lcmNum2"
+                placeholder="Second number"
+                value="18"
+                min="1"
+              />
+            </div>
+
+            <div class="result-section">
+              <div class="section-label">Results</div>
+              <div class="result-row">
+                <span class="result-label">GCF (GCD):</span>
+                <span class="result-value" id="gcfResult">6</span>
+              </div>
+              <div class="result-row">
+                <span class="result-label">LCM:</span>
+                <span class="result-value" id="lcmResult">36</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quadratic Formula Mode -->
+          <div id="quadraticMode" style="display: none">
+            <div class="input-section">
+              <div class="section-label">ax² + bx + c = 0</div>
+              <div class="quad-inputs">
+                <input
+                  type="number"
+                  class="input-field"
+                  id="quadA"
+                  placeholder="a"
+                  value="1"
+                  step="0.1"
+                />
+                <input
+                  type="number"
+                  class="input-field"
+                  id="quadB"
+                  placeholder="b"
+                  value="-3"
+                  step="0.1"
+                />
+                <input
+                  type="number"
+                  class="input-field"
+                  id="quadC"
+                  placeholder="c"
+                  value="2"
+                  step="0.1"
+                />
+              </div>
+            </div>
+
+            <div class="result-section">
+              <div class="section-label">Solutions</div>
+              <div class="result-row">
+                <span class="result-label">x₁:</span>
+                <span class="result-value" id="quadX1">2</span>
+              </div>
+              <div class="result-row">
+                <span class="result-label">x₂:</span>
+                <span class="result-value" id="quadX2">1</span>
+              </div>
+              <div class="result-row">
+                <span class="result-label">Discriminant:</span>
+                <span class="result-value" id="quadDisc">1</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Log Calculator Mode -->
+          <div id="logMode" style="display: none">
+            <div class="input-section">
+              <div class="section-label">Logarithm Calculator</div>
+              <input
+                type="number"
+                class="input-field"
+                id="logValue"
+                placeholder="Value"
+                value="100"
+                min="0"
+                step="0.01"
+              />
+              <input
+                type="number"
+                class="input-field"
+                id="logBase"
+                placeholder="Base (default: 10)"
+                value="10"
+                min="0"
+                step="0.01"
+              />
+            </div>
+
+            <div class="result-section">
+              <div class="section-label">Results</div>
+              <div class="result-row">
+                <span class="result-label">Log Result:</span>
+                <span class="result-value" id="logResult">2</span>
+              </div>
+              <div class="result-row">
+                <span class="result-label">Natural Log (ln):</span>
+                <span class="result-value" id="lnResult">4.605</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Buttons -->
+          <div class="buttons-grid">
+            <button class="btn" onclick="clearAll()">Clear</button>
+            <button class="btn" onclick="resetDefaults()">Reset</button>
+            <button class="btn primary" onclick="calculate()">Calculate</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./Script/AdvancedMathCalculators.js"></script>
+  </body>
+</html>

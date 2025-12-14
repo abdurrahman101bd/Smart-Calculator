@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Advanced Color Picker</title>
+    <link rel="stylesheet" href="./CSS/colorPicker.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-content">
+        <div class="header-left">
+          <button class="back-btn" onclick="window.history.back()">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+            </svg>
+          </button>
+        </div>
+        <div class="header-center">
+          <div class="header-title">
+            <span>Advanced</span><span>Color Picker</span>
+          </div>
+        </div>
+        <div class="header-right"><div class="header-logo">🎨</div></div>
+      </div>
+    </header>
+
+    <div class="main-content">
+      <div class="container">
+        <div class="calculator-wrap">
+          <div class="input-section">
+            <div class="section-label">Enter Color Code (HEX, RGB, HSL)</div>
+            <input
+              type="text"
+              id="colorInput"
+              placeholder="#ff0000"
+              value="#ff0000"
+            />
+          </div>
+
+          <div class="input-section">
+            <div class="section-label">Pick Color</div>
+            <div class="color-display-box" id="colorBox">#FF0000</div>
+            <div class="slider-label">Hue</div>
+            <input type="range" id="hue" min="0" max="360" value="0" />
+            <div class="slider-label">Saturation</div>
+            <input type="range" id="saturation" min="0" max="100" value="100" />
+            <div class="slider-label">Value</div>
+            <input type="range" id="value" min="0" max="100" value="100" />
+          </div>
+
+          <div class="result-section">
+            <div class="result-display copy-box" id="hexBox">#FF0000</div>
+            <div class="result-display copy-box" id="rgbBox">rgb(255,0,0)</div>
+            <div class="result-display copy-box" id="rgbaBox">
+              rgba(255,0,0,1)
+            </div>
+            <div class="result-display copy-box" id="hslBox">
+              hsl(0,100%,50%)
+            </div>
+            <div class="result-display copy-box" id="hslaBox">
+              hsla(0,100%,50%,1)
+            </div>
+            <div class="result-display copy-box" id="cmykBox">
+              cmyk(0%,100%,100%,0%)
+            </div>
+          </div>
+
+          <div class="buttons-grid">
+            <button class="btn" onclick="clearAll()">Clear</button>
+            <button class="btn" onclick="resetDefaults()">Reset</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./Script/colorPicker.js"></script>
+  </body>
+</html>

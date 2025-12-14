@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Advanced QR Code Generator</title>
+    <link rel="stylesheet" href="./CSS/QRCodeGenerator.css" />
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="header-content">
+        <div class="header-left">
+          <button class="back-btn" onclick="history.back()">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+            </svg>
+          </button>
+        </div>
+        <div class="header-center">
+          <div class="header-title">
+            <span>Advanced</span>
+            <span>QR Code Generator</span>
+          </div>
+        </div>
+        <div class="header-right"><div class="header-logo">𖣯</div></div>
+      </div>
+    </header>
+
+    <div class="main">
+      <div class="container">
+        <div class="card">
+          <select id="errorLevel">
+            <option value="L">Low (L)</option>
+            <option value="M" selected>Medium (M)</option>
+            <option value="Q">Quartile (Q)</option>
+            <option value="H">High (H)</option>
+          </select>
+
+          <div id="inputsWrap">
+            <input class="qr-input" placeholder="Enter text / URL" />
+          </div>
+
+          <input
+            type="color"
+            id="fgColor"
+            value="#000000"
+            style="height: 55px"
+          />
+
+          <button class="btn" id="addInputBtn">+ Add Input</button>
+
+          <div class="qr-box" id="qrBox" title="Click to download QR"></div>
+
+          <div class="btn-row">
+            <button class="btn" id="clearBtn">Clear</button>
+            <button class="btn" id="resetBtn">Reset</button>
+          </div>
+
+          <button class="btn primary" id="regenBtn">Regenerate</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+    <script src="./Script/QRCodeGenerator.js"></script>
+  </body>
+</html>

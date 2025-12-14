@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Roman Numeral Converter</title>
+    <link rel="stylesheet" href="./CSS/romanNumeralConverter.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-content">
+        <div class="header-left">
+          <button class="back-btn" onclick="window.history.back()">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+            </svg>
+          </button>
+        </div>
+        <div class="header-center">
+          <div class="header-title">
+            <span>RomanNumeral</span>
+            <span>Converter</span>
+          </div>
+        </div>
+        <div class="header-right"><div class="header-logo">📜</div></div>
+      </div>
+    </header>
+
+    <div class="main-content">
+      <div class="container">
+        <div class="calculator-wrap">
+          <div class="input-section">
+            <div class="section-label">Enter Number or Roman Numeral</div>
+            <input
+              type="text"
+              id="inputField"
+              class="input-field"
+              placeholder="e.g., 1987 or MCMLXXXVII"
+              value="101"
+            />
+          </div>
+
+          <div class="result-section">
+            <div class="result-display" id="outputDisplay">MCMLXXXVII</div>
+          </div>
+
+          <div class="buttons-grid">
+            <button class="copy-btn" onclick="copyResult()">Copy</button>
+            <button class="clear-btn" onclick="clearAll()">Clear</button>
+          </div>
+
+          <div class="buttons-grid">
+            <button class="btn primary" onclick="convert()">Convert</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./Script/romanNumeralConverter.js"></script>
+  </body>
+</html>

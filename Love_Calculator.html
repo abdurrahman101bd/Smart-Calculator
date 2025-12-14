@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Love Calculator</title>
+    <link rel="stylesheet" href="./CSS/loveCalculator.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-content">
+        <div class="header-left">
+          <button class="back-btn" onclick="window.history.back()">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+            </svg>
+          </button>
+        </div>
+        <div class="header-center">
+          <div class="header-title">
+            <span>Love</span><span>Calculator</span>
+          </div>
+        </div>
+        <div class="header-right"><div class="header-logo">💖</div></div>
+      </div>
+    </header>
+
+    <div class="main-content">
+      <div class="container">
+        <div class="calculator-wrap">
+          <div class="input-section">
+            <input
+              type="text"
+              id="name1"
+              class="input-field"
+              placeholder="Your Name"
+              value="Alice"
+            />
+            <input
+              type="text"
+              id="name2"
+              class="input-field"
+              placeholder="Their Name"
+              value="Bob"
+            />
+          </div>
+
+          <!-- Result -->
+          <div class="result-section">
+            <div class="result-display" id="resultText">
+              Love Percentage: --% <span class="heart">💖</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" id="progressFill"></div>
+            </div>
+          </div>
+
+          <!-- Clear Button -->
+          <div class="buttons-grid">
+            <button class="btn" onclick="clearNames()">Clear</button>
+          </div>
+
+          <!-- Calculate Love Button -->
+          <div class="buttons-grid">
+            <button class="btn primary" onclick="calculateLove()">
+              💖 Calculate Love
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./Script/loveCalculator.js"></script>
+  </body>
+</html>

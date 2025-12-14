@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Basic Math Calculator</title>
+    <link rel="stylesheet" href="./CSS/basicMathCalculator.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-content">
+        <div class="header-left">
+          <button class="back-btn" onclick="window.history.back()">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+            </svg>
+          </button>
+        </div>
+        <div class="header-center">
+          <div class="header-title">
+            <span>Basic Math</span>
+            <span>Calculator</span>
+          </div>
+        </div>
+        <div class="header-right">
+          <div class="header-logo">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path
+                d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5.97 4.06L14.09 6l1.41 1.41L16.91 6l1.06 1.06-1.41 1.41 1.41 1.41-1.06 1.06-1.41-1.4-1.41 1.41-1.06-1.06 1.41-1.41-1.41-1.42zm-6.78.66h5v1.5h-5v-1.5zM11.5 16h-2v2H8v-2H6v-1.5h2v-2h1.5v2h2V16zm6.5 1.25h-5v-1.5h5v1.5zm0-2.5h-5V13.5h5v1.25z"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="main-content">
+      <div class="container">
+        <div class="calculator-wrap">
+          <!-- Mode Selection -->
+          <div class="mode-tabs">
+            <button class="mode-tab active" onclick="switchMode('fraction')">
+              Fraction
+            </button>
+            <button class="mode-tab" onclick="switchMode('average')">
+              Average
+            </button>
+            <button class="mode-tab" onclick="switchMode('ratio')">
+              Ratio
+            </button>
+            <button class="mode-tab" onclick="switchMode('error')">
+              % Error
+            </button>
+          </div>
+
+          <!-- Fraction Mode -->
+          <div id="fractionMode">
+            <div class="input-section">
+              <div class="section-label">
+                Fraction Calculator (Add/Subtract)
+              </div>
+              <div class="fraction-row">
+                <input
+                  type="number"
+                  class="input-field"
+                  id="frac1num"
+                  placeholder="Numerator"
+                  value="1"
+                />
+                <span class="fraction-divider">/</span>
+                <input
+                  type="number"
+                  class="input-field"
+                  id="frac1den"
+                  placeholder="Denominator"
+                  value="2"
+                />
+              </div>
+              <div class="fraction-row">
+                <input
+                  type="number"
+                  class="input-field"
+                  id="frac2num"
+                  placeholder="Numerator"
+                  value="1"
+                />
+                <span class="fraction-divider">/</span>
+                <input
+                  type="number"
+                  class="input-field"
+                  id="frac2den"
+                  placeholder="Denominator"
+                  value="3"
+                />
+              </div>
+            </div>
+
+            <div class="result-section">
+              <div class="section-label">Result</div>
+              <div class="result-display" id="fracResult">5/6</div>
+            </div>
+          </div>
+
+          <!-- Average Mode -->
+          <div id="averageMode" style="display: none">
+            <div class="input-section">
+              <div class="section-label">Enter Numbers (comma separated)</div>
+              <input
+                type="text"
+                class="input-field"
+                id="avgNumbers"
+                placeholder="10, 20, 30, 40, 50"
+                value="10, 20, 30, 40, 50"
+              />
+            </div>
+
+            <div class="result-section">
+              <div class="section-label">Average</div>
+              <div class="result-display" id="avgResult">30</div>
+            </div>
+          </div>
+
+          <!-- Ratio Mode -->
+          <div id="ratioMode" style="display: none">
+            <div class="input-section">
+              <div class="section-label">Ratio Calculator</div>
+              <input
+                type="number"
+                class="input-field"
+                id="ratio1"
+                placeholder="Value 1"
+                value="10"
+              />
+              <input
+                type="number"
+                class="input-field"
+                id="ratio2"
+                placeholder="Value 2"
+                value="15"
+              />
+            </div>
+
+            <div class="result-section">
+              <div class="section-label">Simplified Ratio</div>
+              <div class="result-display" id="ratioResult">2:3</div>
+            </div>
+          </div>
+
+          <!-- Percentage Error Mode -->
+          <div id="errorMode" style="display: none">
+            <div class="input-section">
+              <div class="section-label">Percentage Error Calculator</div>
+              <input
+                type="number"
+                class="input-field"
+                id="actual"
+                placeholder="Actual Value"
+                value="100"
+                step="0.01"
+              />
+              <input
+                type="number"
+                class="input-field"
+                id="measured"
+                placeholder="Measured Value"
+                value="95"
+                step="0.01"
+              />
+            </div>
+
+            <div class="result-section">
+              <div class="section-label">Percentage Error</div>
+              <div class="result-display" id="errorResult">5%</div>
+            </div>
+          </div>
+
+          <!-- Buttons -->
+          <div class="buttons-grid">
+            <button class="btn" onclick="clearAll()">Clear</button>
+            <button class="btn" onclick="resetDefaults()">Reset</button>
+            <button class="btn primary" onclick="calculate()">Calculate</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./Script/basicMathCalculator.js"></script>
+  </body>
+</html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Distance Calculator</title>
+    <link rel="stylesheet" href="./CSS/distanceCalculator.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-content">
+        <div class="header-left">
+          <button class="back-btn" onclick="window.history.back()">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+            </svg>
+          </button>
+        </div>
+        <div class="header-center">
+          <div class="header-title">
+            <span>Distance</span>
+            <span>Calculator</span>
+          </div>
+        </div>
+        <div class="header-right">
+          <div class="header-logo">📏</div>
+        </div>
+      </div>
+    </header>
+
+    <div class="main-content">
+      <div class="container">
+        <div class="calculator-wrap">
+          <!-- Mode Selection -->
+          <div class="mode-tabs">
+            <button class="mode-tab active" onclick="switchMode('2d')">
+              2D Distance
+            </button>
+            <button class="mode-tab" onclick="switchMode('3d')">
+              3D Distance
+            </button>
+          </div>
+
+          <!-- 2D Mode -->
+          <div id="mode2d">
+            <div class="input-section">
+              <div class="section-label">Point 1 (x₁, y₁)</div>
+              <div class="coord-row">
+                <input
+                  type="number"
+                  class="input-field"
+                  id="x1"
+                  placeholder="x₁"
+                  value="0"
+                  step="0.01"
+                />
+                <input
+                  type="number"
+                  class="input-field"
+                  id="y1"
+                  placeholder="y₁"
+                  value="0"
+                  step="0.01"
+                />
+              </div>
+              <div class="section-label" style="margin-top: 15px">
+                Point 2 (x₂, y₂)
+              </div>
+              <div class="coord-row">
+                <input
+                  type="number"
+                  class="input-field"
+                  id="x2"
+                  placeholder="x₂"
+                  value="3"
+                  step="0.01"
+                />
+                <input
+                  type="number"
+                  class="input-field"
+                  id="y2"
+                  placeholder="y₂"
+                  value="4"
+                  step="0.01"
+                />
+              </div>
+            </div>
+
+            <div class="result-section">
+              <div class="section-label">Distance</div>
+              <div class="result-display" id="result2d">5.00</div>
+            </div>
+
+            <div class="result-section" style="margin-bottom: 20px">
+              <div class="section-label">Additional Info</div>
+              <div class="result-row">
+                <span class="result-label">Δx:</span>
+                <span class="result-value" id="dx">3.00</span>
+              </div>
+              <div class="result-row">
+                <span class="result-label">Δy:</span>
+                <span class="result-value" id="dy">4.00</span>
+              </div>
+              <div class="result-row">
+                <span class="result-label">Slope:</span>
+                <span class="result-value" id="slope">1.33</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3D Mode -->
+          <div id="mode3d" style="display: none">
+            <div class="input-section">
+              <div class="section-label">Point 1 (x₁, y₁, z₁)</div>
+              <div class="coord-row">
+                <input
+                  type="number"
+                  class="input-field"
+                  id="x1_3d"
+                  placeholder="x₁"
+                  value="0"
+                  step="0.01"
+                />
+                <input
+                  type="number"
+                  class="input-field"
+                  id="y1_3d"
+                  placeholder="y₁"
+                  value="0"
+                  step="0.01"
+                />
+              </div>
+              <input
+                type="number"
+                class="input-field"
+                id="z1_3d"
+                placeholder="z₁"
+                value="0"
+                step="0.01"
+              />
+              <div class="section-label" style="margin-top: 15px">
+                Point 2 (x₂, y₂, z₂)
+              </div>
+              <div class="coord-row">
+                <input
+                  type="number"
+                  class="input-field"
+                  id="x2_3d"
+                  placeholder="x₂"
+                  value="3"
+                  step="0.01"
+                />
+                <input
+                  type="number"
+                  class="input-field"
+                  id="y2_3d"
+                  placeholder="y₂"
+                  value="4"
+                  step="0.01"
+                />
+              </div>
+              <input
+                type="number"
+                class="input-field"
+                id="z2_3d"
+                placeholder="z₂"
+                value="5"
+                step="0.01"
+              />
+            </div>
+
+            <div class="result-section">
+              <div class="section-label">Distance</div>
+              <div class="result-display" id="result3d">7.07</div>
+            </div>
+
+            <div class="result-section" style="margin-bottom: 20px">
+              <div class="section-label">Additional Info</div>
+              <div class="result-row">
+                <span class="result-label">Δx:</span>
+                <span class="result-value" id="dx3d">3.00</span>
+              </div>
+              <div class="result-row">
+                <span class="result-label">Δy:</span>
+                <span class="result-value" id="dy3d">4.00</span>
+              </div>
+              <div class="result-row">
+                <span class="result-label">Δz:</span>
+                <span class="result-value" id="dz3d">5.00</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Buttons -->
+          <div class="buttons-grid">
+            <button class="btn" onclick="clearAll()">Clear</button>
+            <button class="btn" onclick="resetDefaults()">Reset</button>
+            <button class="btn primary" onclick="calculate()">Calculate</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./Script/distanceCalculator.js"></script>
+  </body>
+</html>

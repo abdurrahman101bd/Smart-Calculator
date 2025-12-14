@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Body & Fitness Calculator</title>
+    <link rel="stylesheet" href="./CSS/bodyFitnessCalculators.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-content">
+        <div class="header-left">
+          <button class="back-btn" onclick="window.history.back()">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+            </svg>
+          </button>
+        </div>
+        <div class="header-center">
+          <div class="header-title">
+            <span>Body & Fitness</span>
+            <span>Calculator</span>
+          </div>
+        </div>
+        <div class="header-right">
+          <div class="header-logo">💪</div>
+        </div>
+      </div>
+    </header>
+
+    <div class="main-content">
+      <div class="container">
+        <div class="calculator-wrap">
+          <!-- Mode Selection -->
+          <div class="mode-tabs">
+            <button class="mode-tab active" onclick="switchMode('bodyfat')">
+              Body Fat %
+            </button>
+            <button class="mode-tab" onclick="switchMode('ideal')">
+              Ideal Weight
+            </button>
+            <button class="mode-tab" onclick="switchMode('healthy')">
+              Healthy Weight
+            </button>
+            <button class="mode-tab" onclick="switchMode('heartrate')">
+              Heart Rate
+            </button>
+          </div>
+
+          <!-- Input Section -->
+          <div class="input-section">
+            <div class="section-label" id="inputLabel">Your Information</div>
+            <select class="select-field" id="gender">
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+            <input
+              type="number"
+              class="input-field"
+              id="age"
+              placeholder="Age (years)"
+              value="30"
+            />
+            <input
+              type="number"
+              class="input-field"
+              id="height"
+              placeholder="Height (cm)"
+              value="175"
+            />
+            <input
+              type="number"
+              class="input-field"
+              id="weight"
+              placeholder="Weight (kg)"
+              value="70"
+            />
+            <input
+              type="number"
+              class="input-field"
+              id="waist"
+              placeholder="Waist (cm)"
+              value="85"
+              style="display: none"
+            />
+            <input
+              type="number"
+              class="input-field"
+              id="neck"
+              placeholder="Neck (cm)"
+              value="37"
+              style="display: none"
+            />
+            <input
+              type="number"
+              class="input-field"
+              id="hip"
+              placeholder="Hip (cm)"
+              value="95"
+              style="display: none"
+            />
+          </div>
+
+          <!-- Result Section -->
+          <div class="result-section">
+            <div class="section-label" id="resultLabel">
+              Body Fat Percentage
+            </div>
+            <div class="result-display" id="mainResult">18.5%</div>
+            <div class="result-category healthy" id="category">Athletic</div>
+
+            <div class="breakdown-grid" id="breakdown"></div>
+          </div>
+
+          <!-- Buttons -->
+          <div class="buttons-grid">
+            <button class="btn" onclick="clearAll()">Clear</button>
+            <button class="btn" onclick="resetDefaults()">Reset</button>
+            <button class="btn primary" onclick="calculate()">Calculate</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./Script/bodyFitnessCalculators.js"></script>
+  </body>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Density Calculator</title>
+    <link rel="stylesheet" href="./CSS/densityCalculator.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-content">
+        <div class="header-left">
+          <button class="back-btn" onclick="window.history.back()">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+            </svg>
+          </button>
+        </div>
+        <div class="header-center">
+          <div class="header-title">
+            <span>Density</span>
+            <span>Calculator</span>
+          </div>
+        </div>
+        <div class="header-right">
+          <div class="header-logo">🧊</div>
+        </div>
+      </div>
+    </header>
+
+    <div class="main-content">
+      <div class="container">
+        <div class="calculator-wrap">
+          <!-- Mode Selection -->
+          <div class="mode-tabs">
+            <button class="mode-tab active" onclick="switchMode('density')">
+              Find Density
+            </button>
+            <button class="mode-tab" onclick="switchMode('mass')">
+              Find Mass
+            </button>
+            <button class="mode-tab" onclick="switchMode('volume')">
+              Find Volume
+            </button>
+          </div>
+
+          <!-- Find Density Mode -->
+          <div id="densityMode">
+            <div class="input-section">
+              <div class="section-label">Calculate Density</div>
+              <div class="formula-hint">Density = Mass / Volume</div>
+
+              <div class="input-group">
+                <input
+                  type="number"
+                  class="input-field"
+                  id="dens1"
+                  placeholder="Mass"
+                  value="100"
+                  step="0.01"
+                />
+                <select class="unit-select" id="densUnit1">
+                  <option value="kg">kg</option>
+                  <option value="g" selected>g</option>
+                  <option value="mg">mg</option>
+                  <option value="lb">lb</option>
+                </select>
+              </div>
+
+              <div class="input-group">
+                <input
+                  type="number"
+                  class="input-field"
+                  id="dens2"
+                  placeholder="Volume"
+                  value="50"
+                  step="0.01"
+                />
+                <select class="unit-select" id="densUnit2">
+                  <option value="m3">m³</option>
+                  <option value="cm3" selected>cm³</option>
+                  <option value="mm3">mm³</option>
+                  <option value="L">L</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="result-section">
+              <div class="section-label">Density</div>
+              <div class="result-display" id="densResult">2.00 g/cm³</div>
+            </div>
+          </div>
+
+          <!-- Find Mass Mode -->
+          <div id="massMode" style="display: none">
+            <div class="input-section">
+              <div class="section-label">Calculate Mass</div>
+              <div class="formula-hint">Mass = Density × Volume</div>
+
+              <div class="input-group">
+                <input
+                  type="number"
+                  class="input-field"
+                  id="mass1"
+                  placeholder="Density"
+                  value="2"
+                  step="0.01"
+                />
+                <select class="unit-select" id="massUnit1">
+                  <option value="kg/m3">kg/m³</option>
+                  <option value="g/cm3" selected>g/cm³</option>
+                  <option value="g/ml">g/mL</option>
+                </select>
+              </div>
+
+              <div class="input-group">
+                <input
+                  type="number"
+                  class="input-field"
+                  id="mass2"
+                  placeholder="Volume"
+                  value="50"
+                  step="0.01"
+                />
+                <select class="unit-select" id="massUnit2">
+                  <option value="m3">m³</option>
+                  <option value="cm3" selected>cm³</option>
+                  <option value="L">L</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="result-section">
+              <div class="section-label">Mass</div>
+              <div class="result-display" id="massResult">100 g</div>
+            </div>
+          </div>
+
+          <!-- Find Volume Mode -->
+          <div id="volumeMode" style="display: none">
+            <div class="input-section">
+              <div class="section-label">Calculate Volume</div>
+              <div class="formula-hint">Volume = Mass / Density</div>
+
+              <div class="input-group">
+                <input
+                  type="number"
+                  class="input-field"
+                  id="vol1"
+                  placeholder="Mass"
+                  value="100"
+                  step="0.01"
+                />
+                <select class="unit-select" id="volUnit1">
+                  <option value="kg">kg</option>
+                  <option value="g" selected>g</option>
+                  <option value="lb">lb</option>
+                </select>
+              </div>
+
+              <div class="input-group">
+                <input
+                  type="number"
+                  class="input-field"
+                  id="vol2"
+                  placeholder="Density"
+                  value="2"
+                  step="0.01"
+                />
+                <select class="unit-select" id="volUnit2">
+                  <option value="kg/m3">kg/m³</option>
+                  <option value="g/cm3" selected>g/cm³</option>
+                  <option value="g/ml">g/mL</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="result-section">
+              <div class="section-label">Volume</div>
+              <div class="result-display" id="volResult">50 cm³</div>
+            </div>
+          </div>
+
+          <!-- Buttons -->
+          <div class="buttons-grid">
+            <button class="btn" onclick="clearAll()">Clear</button>
+            <button class="btn" onclick="resetDefaults()">Reset</button>
+            <button class="btn primary" onclick="calculate()">Calculate</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./Script/densityCalculator.js"></script>
+  </body>
+</html>

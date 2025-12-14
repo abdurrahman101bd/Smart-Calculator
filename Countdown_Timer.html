@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Countdown Timer</title>
+    <link rel="stylesheet" href="./CSS/countdownTimer.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-content">
+        <div class="header-left">
+          <button class="back-btn" onclick="window.history.back()">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+            </svg>
+          </button>
+        </div>
+        <div class="header-center">
+          <div class="header-title">
+            <span>Countdown</span>
+            <span>Timer</span>
+          </div>
+        </div>
+        <div class="header-right">
+          <div class="header-logo">⏰</div>
+        </div>
+      </div>
+    </header>
+
+    <div class="main-content">
+      <div class="container">
+        <div class="calculator-wrap">
+          <div class="input-section">
+            <div class="section-label">Event Name</div>
+            <input
+              type="text"
+              class="input-field"
+              id="eventName"
+              placeholder="New Year 2026"
+              value="New Year 2026"
+            />
+            <div class="section-label" style="margin-top: 15px">Event Date</div>
+            <div class="date-row">
+              <select id="year"></select>
+              <select id="month"></select>
+              <select id="day"></select>
+            </div>
+            <div class="section-label" style="margin-top: 15px">Event Time</div>
+            <input
+              type="time"
+              class="input-field"
+              id="eventTime"
+              value="00:00"
+            />
+          </div>
+
+          <div class="result-section">
+            <div class="countdown-display">
+              <div class="event-name" id="displayEventName">New Year 2026</div>
+              <div class="time-grid">
+                <div class="time-box">
+                  <div class="time-value" id="days">0</div>
+                  <div class="time-label">Days</div>
+                </div>
+                <div class="time-box">
+                  <div class="time-value" id="hours">0</div>
+                  <div class="time-label">Hours</div>
+                </div>
+                <div class="time-box">
+                  <div class="time-value" id="minutes">0</div>
+                  <div class="time-label">Minutes</div>
+                </div>
+                <div class="time-box">
+                  <div class="time-value" id="seconds">0</div>
+                  <div class="time-label">Seconds</div>
+                </div>
+              </div>
+              <div class="status-text" id="statusText">
+                Set a date to start countdown
+              </div>
+            </div>
+          </div>
+
+          <div class="buttons-grid">
+            <button class="btn" onclick="clearAll()">Clear</button>
+            <button class="btn" onclick="setDefaultEvent()">Reset</button>
+            <button class="btn success" onclick="startCountdown()">
+              Start
+            </button>
+            <button class="btn stop" onclick="stopCountdown()">Stop</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./Script/countdownTimer.js"></script>
+  </body>
+</html>

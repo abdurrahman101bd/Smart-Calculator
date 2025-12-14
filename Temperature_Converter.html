@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TemperatureConverter</title>
+    <link rel="stylesheet" href="./CSS/temperatureConverter.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-content">
+        <div class="header-left">
+          <button class="back-btn" onclick="window.history.back()">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+            </svg>
+          </button>
+        </div>
+        <div class="header-center">
+          <div class="header-title">
+            <span>Temperature</span>
+            <span>Converter</span>
+          </div>
+        </div>
+        <div class="header-right">
+          <div class="header-logo">🌡️</div>
+        </div>
+      </div>
+    </header>
+
+    <div class="main-content">
+      <div class="container">
+        <div class="converter-wrap">
+          <!-- Input Section -->
+          <div class="input-section">
+            <div class="section-label">Enter Temperature</div>
+            <div class="input-group">
+              <input
+                type="number"
+                class="temp-input"
+                id="tempValue"
+                placeholder="Value"
+                value="25"
+                step="0.1"
+              />
+              <select class="unit-select" id="fromUnit">
+                <option value="celsius" selected>Celsius (°C)</option>
+                <option value="fahrenheit">Fahrenheit (°F)</option>
+                <option value="kelvin">Kelvin (K)</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Results Section -->
+          <div class="input-section">
+            <div class="section-label">Converted Values</div>
+            <div class="result-cards">
+              <div class="temp-card">
+                <span class="temp-unit">Celsius</span>
+                <span class="temp-value" id="celsiusValue">25.0°C</span>
+              </div>
+              <div class="temp-card">
+                <span class="temp-unit">Fahrenheit</span>
+                <span class="temp-value" id="fahrenheitValue">77.0°F</span>
+              </div>
+              <div class="temp-card">
+                <span class="temp-unit">Kelvin</span>
+                <span class="temp-value" id="kelvinValue">298.2K</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Buttons -->
+          <div class="buttons-grid">
+            <button class="btn" onclick="clearAll()">Clear</button>
+            <button class="btn" onclick="swapUnit()">Change Unit</button>
+            <button class="btn primary" onclick="convert()">Convert</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./Script/temperatureConverter.js"></script>
+  </body>
+</html>

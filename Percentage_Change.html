@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Percentage Change Calculator</title>
+    <link rel="stylesheet" href="./CSS/percentageChange.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-content">
+        <div class="header-left">
+          <button class="back-btn" onclick="window.history.back()">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+            </svg>
+          </button>
+        </div>
+        <div class="header-center">
+          <div class="header-title">
+            <span>Percentage</span>
+            <span>Change</span>
+          </div>
+        </div>
+        <div class="header-right">
+          <div class="header-logo">📈</div>
+        </div>
+      </div>
+    </header>
+
+    <div class="main-content">
+      <div class="container">
+        <div class="calculator-wrap">
+          <div class="input-section">
+            <div class="section-label">Original Value</div>
+            <input
+              type="number"
+              class="input-field"
+              id="originalValue"
+              placeholder="100"
+              value="100"
+              step="0.01"
+            />
+
+            <div class="section-label" style="margin-top: 15px">New Value</div>
+            <input
+              type="number"
+              class="input-field"
+              id="newValue"
+              placeholder="150"
+              value="150"
+              step="0.01"
+            />
+          </div>
+
+          <div class="result-section">
+            <div class="section-label">Percentage Change</div>
+            <div class="result-display neutral" id="percentageChange">+50%</div>
+          </div>
+
+          <div class="result-section" style="margin-bottom: 20px">
+            <div class="section-label">Details</div>
+            <div class="result-row">
+              <span class="result-label">Change Type:</span>
+              <span class="result-value" id="changeType">Increase</span>
+            </div>
+            <div class="result-row">
+              <span class="result-label">Absolute Change:</span>
+              <span class="result-value" id="absoluteChange">50</span>
+            </div>
+            <div class="result-row">
+              <span class="result-label">Multiplier:</span>
+              <span class="result-value" id="multiplier">1.5x</span>
+            </div>
+          </div>
+
+          <div class="buttons-grid">
+            <button class="btn" onclick="clearAll()">Clear</button>
+            <button class="btn" onclick="resetDefaults()">Reset</button>
+            <button class="btn primary" onclick="calculate()">Calculate</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./Script/percentageChange.js"></script>
+  </body>
+</html>

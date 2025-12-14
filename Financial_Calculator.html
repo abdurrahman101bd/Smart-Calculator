@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Financial Calculator</title>
+    <link rel="stylesheet" href="./CSS/financialCalculator.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-content">
+        <div class="header-left">
+          <button class="back-btn" onclick="window.history.back()">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+            </svg>
+          </button>
+        </div>
+        <div class="header-center">
+          <div class="header-title">
+            <span>Financial</span>
+            <span>Calculator</span>
+          </div>
+        </div>
+        <div class="header-right">
+          <div class="header-logo">💵</div>
+        </div>
+      </div>
+    </header>
+
+    <div class="main-content">
+      <div class="container">
+        <div class="calculator-wrap">
+          <!-- Mode Selection -->
+          <div class="mode-tabs">
+            <button class="mode-tab active" onclick="switchMode('mortgage')">
+              Mortgage
+            </button>
+            <button class="mode-tab" onclick="switchMode('compound')">
+              Compound Int.
+            </button>
+            <button class="mode-tab" onclick="switchMode('emi')">EMI</button>
+            <button class="mode-tab" onclick="switchMode('savings')">
+              Savings
+            </button>
+          </div>
+
+          <!-- Mortgage Mode -->
+          <div id="mortgageMode">
+            <div class="input-section">
+              <div class="section-label">Mortgage Details</div>
+              <input
+                type="number"
+                class="input-field"
+                id="mort1"
+                placeholder="Home Price ($)"
+                value="300000"
+              />
+              <input
+                type="number"
+                class="input-field"
+                id="mort2"
+                placeholder="Down Payment ($)"
+                value="60000"
+              />
+              <input
+                type="number"
+                class="input-field"
+                id="mort3"
+                placeholder="Interest Rate (% per year)"
+                value="6.5"
+                step="0.1"
+              />
+              <input
+                type="number"
+                class="input-field"
+                id="mort4"
+                placeholder="Loan Term (years)"
+                value="30"
+              />
+            </div>
+
+            <div class="result-section">
+              <div class="section-label">Monthly Payment</div>
+              <div class="result-display">
+                $<span id="mortResult">1,517</span>
+              </div>
+              <div class="breakdown-grid">
+                <div class="breakdown-item">
+                  <span class="breakdown-value"
+                    >$<span id="mortTotal">546,120</span></span
+                  >
+                  <span class="breakdown-label">Total Payment</span>
+                </div>
+                <div class="breakdown-item">
+                  <span class="breakdown-value"
+                    >$<span id="mortInterest">306,120</span></span
+                  >
+                  <span class="breakdown-label">Total Interest</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Compound Interest Mode -->
+          <div id="compoundMode" style="display: none">
+            <div class="input-section">
+              <div class="section-label">Investment Details</div>
+              <input
+                type="number"
+                class="input-field"
+                id="comp1"
+                placeholder="Principal Amount ($)"
+                value="10000"
+              />
+              <input
+                type="number"
+                class="input-field"
+                id="comp2"
+                placeholder="Interest Rate (% per year)"
+                value="8"
+                step="0.1"
+              />
+              <input
+                type="number"
+                class="input-field"
+                id="comp3"
+                placeholder="Time Period (years)"
+                value="10"
+              />
+              <input
+                type="number"
+                class="input-field"
+                id="comp4"
+                placeholder="Compounds per Year"
+                value="12"
+              />
+            </div>
+
+            <div class="result-section">
+              <div class="section-label">Future Value</div>
+              <div class="result-display">
+                $<span id="compResult">22,196</span>
+              </div>
+              <div class="breakdown-grid">
+                <div class="breakdown-item">
+                  <span class="breakdown-value"
+                    >$<span id="compInterest">12,196</span></span
+                  >
+                  <span class="breakdown-label">Interest Earned</span>
+                </div>
+                <div class="breakdown-item">
+                  <span class="breakdown-value"
+                    ><span id="compGrowth">122%</span></span
+                  >
+                  <span class="breakdown-label">Total Growth</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- EMI Mode -->
+          <div id="emiMode" style="display: none">
+            <div class="input-section">
+              <div class="section-label">Loan Details</div>
+              <input
+                type="number"
+                class="input-field"
+                id="emi1"
+                placeholder="Loan Amount ($)"
+                value="50000"
+              />
+              <input
+                type="number"
+                class="input-field"
+                id="emi2"
+                placeholder="Interest Rate (% per year)"
+                value="10"
+                step="0.1"
+              />
+              <input
+                type="number"
+                class="input-field"
+                id="emi3"
+                placeholder="Loan Tenure (months)"
+                value="36"
+              />
+            </div>
+
+            <div class="result-section">
+              <div class="section-label">Monthly EMI</div>
+              <div class="result-display">
+                $<span id="emiResult">1,613</span>
+              </div>
+              <div class="breakdown-grid">
+                <div class="breakdown-item">
+                  <span class="breakdown-value"
+                    >$<span id="emiTotal">58,068</span></span
+                  >
+                  <span class="breakdown-label">Total Payment</span>
+                </div>
+                <div class="breakdown-item">
+                  <span class="breakdown-value"
+                    >$<span id="emiInterest">8,068</span></span
+                  >
+                  <span class="breakdown-label">Total Interest</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Savings Mode -->
+          <div id="savingsMode" style="display: none">
+            <div class="input-section">
+              <div class="section-label">Savings Plan</div>
+              <input
+                type="number"
+                class="input-field"
+                id="sav1"
+                placeholder="Initial Deposit ($)"
+                value="5000"
+              />
+              <input
+                type="number"
+                class="input-field"
+                id="sav2"
+                placeholder="Monthly Contribution ($)"
+                value="200"
+              />
+              <input
+                type="number"
+                class="input-field"
+                id="sav3"
+                placeholder="Interest Rate (% per year)"
+                value="5"
+                step="0.1"
+              />
+              <input
+                type="number"
+                class="input-field"
+                id="sav4"
+                placeholder="Time Period (years)"
+                value="10"
+              />
+            </div>
+
+            <div class="result-section">
+              <div class="section-label">Future Savings</div>
+              <div class="result-display">
+                $<span id="savResult">36,729</span>
+              </div>
+              <div class="breakdown-grid">
+                <div class="breakdown-item">
+                  <span class="breakdown-value"
+                    >$<span id="savDeposits">29,000</span></span
+                  >
+                  <span class="breakdown-label">Total Deposits</span>
+                </div>
+                <div class="breakdown-item">
+                  <span class="breakdown-value"
+                    >$<span id="savInterest">7,729</span></span
+                  >
+                  <span class="breakdown-label">Interest Earned</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Buttons -->
+          <div class="buttons-grid">
+            <button class="btn" onclick="clearAll()">Clear</button>
+            <button class="btn" onclick="resetDefaults()">Reset</button>
+            <button class="btn primary" onclick="calculate()">Calculate</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./Script/FinancialCalculator.js"></script>
+  </body>
+</html>

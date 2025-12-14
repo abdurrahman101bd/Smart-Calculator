@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Age Calculator</title>
+    <link rel="stylesheet" href="./CSS/ageCalculator.css" />
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="header-content">
+        <div class="header-left">
+          <button class="back-btn" onclick="window.history.back()">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+            </svg>
+          </button>
+        </div>
+        <div class="header-center">
+          <div class="header-title">
+            <span>Age</span>
+            <span>Calculator</span>
+          </div>
+        </div>
+        <div class="header-right">
+          <div class="header-logo">🎂</div>
+        </div>
+      </div>
+    </header>
+
+    <div class="main-content">
+      <div class="container">
+        <div class="calculator-wrap">
+          <!-- Birth Date Section -->
+          <div class="input-section">
+            <div class="section-label">Date of Birth</div>
+            <div class="custom-date-input">
+              <select id="birthYear"></select>
+              <select id="birthMonth"></select>
+              <select id="birthDay"></select>
+            </div>
+          </div>
+
+          <!-- Current Date Section -->
+          <div class="input-section">
+            <div class="section-label">Calculate Age On</div>
+            <div class="custom-date-input">
+              <select id="currentYear"></select>
+              <select id="currentMonth"></select>
+              <select id="currentDay"></select>
+            </div>
+          </div>
+
+          <!-- Result Section -->
+          <div class="result-section">
+            <div class="section-label">Your Age</div>
+            <div class="age-display">
+              <div class="age-item">
+                <span class="age-value" id="years">0</span>
+                <span class="age-label">Years</span>
+              </div>
+              <div class="age-item">
+                <span class="age-value" id="months">0</span>
+                <span class="age-label">Months</span>
+              </div>
+              <div class="age-item">
+                <span class="age-value" id="days">0</span>
+                <span class="age-label">Days</span>
+              </div>
+            </div>
+
+            <div class="detailed-info">
+              <div class="info-row">
+                <span class="info-label">Total Months:</span>
+                <span class="info-value" id="totalMonths">0</span>
+              </div>
+              <div class="info-row">
+                <span class="info-label">Total Weeks:</span>
+                <span class="info-value" id="totalWeeks">0</span>
+              </div>
+              <div class="info-row">
+                <span class="info-label">Total Days:</span>
+                <span class="info-value" id="totalDays">0</span>
+              </div>
+              <div class="info-row">
+                <span class="info-label">Total Hours:</span>
+                <span class="info-value" id="totalHours">0</span>
+              </div>
+              <div class="info-row">
+                <span class="info-label">Next Birthday:</span>
+                <span class="info-value" id="nextBirthday">-</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Buttons -->
+          <div class="buttons-grid">
+            <button class="btn" onclick="clearAll()">Clear</button>
+            <button class="btn" onclick="setToday()">Today</button>
+            <button class="btn primary" onclick="calculateAge()">
+              Calculate Age
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./Script/ageCalculator.js"></script>
+  </body>
+</html>

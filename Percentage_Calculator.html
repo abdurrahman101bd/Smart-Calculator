@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PercentageCalculator</title>
+    <link rel="stylesheet" href="./CSS/percentageCalculator.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-content">
+        <div class="header-left">
+          <button class="back-btn" onclick="window.history.back()">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+            </svg>
+          </button>
+        </div>
+        <div class="header-center">
+          <div class="header-title">
+            <span>Percentage</span>
+            <span>Calculator</span>
+          </div>
+        </div>
+        <div class="header-right">
+          <div class="header-logo">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path
+                d="M7.5 4C5.57 4 4 5.57 4 7.5S5.57 11 7.5 11 11 9.43 11 7.5 9.43 4 7.5 4zm0 5C6.67 9 6 8.33 6 7.5S6.67 6 7.5 6 9 6.67 9 7.5 8.33 9 7.5 9zM4.0025 18.5832L18.59 3.9955l1.4142 1.4143L5.4167 19.9974zM16.5 13c-1.93 0-3.5 1.57-3.5 3.5s1.57 3.5 3.5 3.5 3.5-1.57 3.5-3.5-1.57-3.5-3.5-3.5zm0 5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="main-content">
+      <div class="container">
+        <div class="calculator-wrap">
+          <!-- Mode Selection -->
+          <div class="mode-tabs">
+            <button class="mode-tab active" onclick="switchMode('basic')">
+              Basic %
+            </button>
+            <button class="mode-tab" onclick="switchMode('increase')">
+              % Increase
+            </button>
+            <button class="mode-tab" onclick="switchMode('decrease')">
+              % Decrease
+            </button>
+            <button class="mode-tab" onclick="switchMode('difference')">
+              % Difference
+            </button>
+          </div>
+
+          <!-- Basic Mode -->
+          <div id="basicMode">
+            <div class="input-section">
+              <div class="question-text">
+                What is <strong>X%</strong> of <strong>Y</strong>?
+              </div>
+              <input
+                type="number"
+                class="input-field"
+                id="basic1"
+                placeholder="Percentage (X)"
+                value="20"
+              />
+              <input
+                type="number"
+                class="input-field"
+                id="basic2"
+                placeholder="Value (Y)"
+                value="100"
+              />
+            </div>
+
+            <div class="result-section">
+              <div class="section-label">Result</div>
+              <div class="result-display" id="basicResult">20</div>
+            </div>
+          </div>
+
+          <!-- Increase Mode -->
+          <div id="increaseMode" style="display: none">
+            <div class="input-section">
+              <div class="question-text">
+                Increase <strong>X</strong> by <strong>Y%</strong>
+              </div>
+              <input
+                type="number"
+                class="input-field"
+                id="increase1"
+                placeholder="Original Value (X)"
+                value="100"
+              />
+              <input
+                type="number"
+                class="input-field"
+                id="increase2"
+                placeholder="Percentage (Y)"
+                value="20"
+              />
+            </div>
+
+            <div class="result-section">
+              <div class="section-label">Result</div>
+              <div class="result-display" id="increaseResult">120</div>
+            </div>
+          </div>
+
+          <!-- Decrease Mode -->
+          <div id="decreaseMode" style="display: none">
+            <div class="input-section">
+              <div class="question-text">
+                Decrease <strong>X</strong> by <strong>Y%</strong>
+              </div>
+              <input
+                type="number"
+                class="input-field"
+                id="decrease1"
+                placeholder="Original Value (X)"
+                value="100"
+              />
+              <input
+                type="number"
+                class="input-field"
+                id="decrease2"
+                placeholder="Percentage (Y)"
+                value="20"
+              />
+            </div>
+
+            <div class="result-section">
+              <div class="section-label">Result</div>
+              <div class="result-display" id="decreaseResult">80</div>
+            </div>
+          </div>
+
+          <!-- Difference Mode -->
+          <div id="differenceMode" style="display: none">
+            <div class="input-section">
+              <div class="question-text">
+                What is the % difference from <strong>X</strong> to
+                <strong>Y</strong>?
+              </div>
+              <input
+                type="number"
+                class="input-field"
+                id="diff1"
+                placeholder="Value 1 (X)"
+                value="50"
+              />
+              <input
+                type="number"
+                class="input-field"
+                id="diff2"
+                placeholder="Value 2 (Y)"
+                value="75"
+              />
+            </div>
+
+            <div class="result-section">
+              <div class="section-label">Result</div>
+              <div class="result-display" id="diffResult">50%</div>
+            </div>
+          </div>
+
+          <!-- Buttons -->
+          <div class="buttons-grid">
+            <button class="btn" onclick="clearAll()">Clear</button>
+            <button class="btn" onclick="resetDefaults()">Reset</button>
+            <button class="btn primary" onclick="calculate()">Calculate</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./Script/percentageCalculator.js"></script>
+  </body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Color Palette Generator</title>
+    <link rel="stylesheet" href="./CSS/colorPaletteGenerator.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-content">
+        <div class="header-left">
+          <button class="back-btn" onclick="window.history.back()">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+            </svg>
+          </button>
+        </div>
+        <div class="header-center">
+          <div class="header-title">
+            <span>Color Palette</span>
+            <span>Generator</span>
+          </div>
+        </div>
+        <div class="header-right"><div class="header-logo">🎨</div></div>
+      </div>
+    </header>
+
+    <div class="main">
+      <div class="container">
+        <div class="card">
+          <!-- Count Input -->
+          <div class="input-wrap">
+            <input
+              type="number"
+              id="countInput"
+              min="1"
+              max="50"
+              placeholder="Number of palettes"
+              value="5"
+            />
+          </div>
+          <!-- Palette -->
+          <div class="palette-grid" id="paletteGrid"></div>
+          <!-- Clear -->
+          <div class="btn-row">
+            <button class="btn" id="clearBtn">Clear</button>
+            <button class="btn primary" id="regenBtn">Regenerate</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./Script/colorPaletteGenerator.js"></script>
+  </body>
+</html>
