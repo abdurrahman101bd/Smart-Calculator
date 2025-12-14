@@ -1,0 +1,245 @@
+* {  margin: 0; padding: 0; box-sizing: border-box;}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background: linear-gradient(135deg, #e0e5ec 0%, #d5dae3 100%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  background: #e0e5ec;
+  padding: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-left {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.header-center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.header-right {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.back-btn {
+  background: #e0e5ec;
+  border: none;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 6px 6px 12px #bec3c9, -6px -6px 12px #ffffff;
+  transition: all 0.1s ease;
+}
+
+.back-btn:active {
+  box-shadow: inset 6px 6px 12px #bec3c9, inset -6px -6px 12px #ffffff;
+}
+
+.back-btn svg {
+  width: 24px;
+  height: 24px;
+  fill: #4a5568;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #4a5568;
+}
+
+.logo-icon {
+  width: 45px;
+  height: 45px;
+  background: #e0e5ec;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 6px 6px 12px #bec3c9, -6px -6px 12px #ffffff;
+}
+
+.logo-icon svg {
+  width: 28px;
+  height: 28px;
+  fill: #667eea;
+}
+
+.container {
+  flex: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px 20px;
+  width: 100%;
+}
+
+.page-title {
+  font-size: 32px;
+  font-weight: bold;
+  color: #2d3748;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
+  margin-bottom: 50px;
+}
+
+.tool-box {
+  background: #e0e5ec;
+  border-radius: 25px;
+  padding: 30px;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 10px 10px 20px #bec3c9, -10px -10px 20px #ffffff;
+}
+
+.tool-box:hover {
+  transform: translateY(-3px);
+  box-shadow: 12px 12px 24px #bec3c9, -12px -12px 24px #ffffff;
+}
+
+.tool-box:active {
+  transform: translateY(0);
+  box-shadow: inset 8px 8px 16px #bec3c9, inset -8px -8px 16px #ffffff;
+}
+
+.tool-icon {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 15px;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.tool-icon svg {
+  width: 32px;
+  height: 32px;
+  fill: white;
+}
+
+.tool-icon.emoji {
+  background: none;
+  box-shadow: none;
+  font-size: 48px;
+}
+
+.tool-name {
+  font-size: 20px;
+  font-weight: 600;
+  color: #2d3748;
+  text-align: center;
+}
+
+.tool-description {
+  font-size: 14px;
+  color: #718096;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.footer {
+  background: #e0e5ec;
+  padding: 20px 20px;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+  margin-top: auto;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  color: #718096;
+  font-size: 14px;
+}
+
+.footer-content p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.footer-content .copyright {
+  font-weight: 500;
+  color: #4a5568;
+}
+
+.footer-content .made-with {
+  margin-top: 4px;
+  font-size: 13px;
+  color: #a0aec0;
+}
+
+.footer-content .heart {
+  color: #f56565;
+  display: inline-block;
+  animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  10%, 30% { transform: scale(1.1); }
+  20%, 40% { transform: scale(1); }
+}
+
+@media (max-width: 768px) {
+  .tools-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+  }
+
+  .tool-box { padding: 20px; }
+
+  .tool-icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .tool-icon svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  .tool-icon.emoji { font-size: 40px; }
+
+  .tool-name { font-size: 16px; }
+
+  .tool-description { font-size: 12px; }
+
+  .page-title { font-size: 24px; }
+}
